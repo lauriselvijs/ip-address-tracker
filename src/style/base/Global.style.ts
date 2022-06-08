@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    @import url('${({ theme }) => theme.font.fontFamilyImportUrl}');
-
     body{
         padding: 0px;
         margin: 0px;

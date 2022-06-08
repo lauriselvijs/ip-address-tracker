@@ -1,11 +1,9 @@
 import React from "react";
-import { FooterStyle } from "../../style/layout/Footer";
+import { FooterStyle } from "./Footer.style";
 
 const Footer = () => {
-  const { Footer } = FooterStyle;
-
   return (
-    <Footer>
+    <FooterStyle>
       Challenge by Challenge by{" "}
       <a
         rel="noreferrer"
@@ -23,7 +21,7 @@ const Footer = () => {
         Lauris
       </a>
       .
-    </Footer>
+    </FooterStyle>
   );
 };
 
