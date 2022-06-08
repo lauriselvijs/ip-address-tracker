@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
+import { IContainer } from "./Container";
 
 export interface IFontProvider {
   fontFamilyName: string;
   fontWeight: { [key: string]: string };
-  children: ReactElement | ReactElement[];
+  children: IContainer["children"];
 }

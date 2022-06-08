@@ -1,7 +1,8 @@
 import React from "react";
+import { IpLocationMapStyle } from "./IpLocationMap.style";
 
 const IpLocationMap = () => {
-  return <div>IpLocationMap</div>;
+  return <IpLocationMapStyle />;
 };
 
 export default IpLocationMap;

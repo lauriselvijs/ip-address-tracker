@@ -1,7 +1,7 @@
 export const colors = {
   baseColor: "hsl(0, 0%, 59%)",
   baseColorDark: "hsl(0, 0%, 17%)",
-  secondaryColor: "hsl(228, 45%, 44%)",
-  white: "white",
-  black: "black",
+  secondaryColor: "hsl(360, 100%, 100%)",
+  white: "hsl(360, 100%, 100%)",
+  black: "hsl(0, 0%, 0%)",
 };

@@ -5,7 +5,5 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0px;
         margin: 0px;
         font-family: ${({ theme }) => theme.font.fontFamily};
-        font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
     }
-
 `;

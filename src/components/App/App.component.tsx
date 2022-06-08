@@ -4,6 +4,11 @@ import Footer from "../Footer";
 import { GlobalStyle } from "../../style/base/Global.style";
 import LightTheme from "../../style/theme/LightTheme";
 import FontProvider from "../FontProvider";
+import HeaderContainer from "../HeaderContainer";
+import Title from "../Title";
+import IpSearchInput from "../IpSearchInput";
+import IpLocationMap from "../IpLocationMap";
+import IpLocationInfo from "../IpLocationInfo";
 
 const App = () => {
   const {
@@ -14,7 +19,13 @@ const App = () => {
     <FontProvider fontFamilyName={fontFamilyName} fontWeight={fontWeight}>
       <ThemeProvider theme={LightTheme}>
         <GlobalStyle />
-        <Footer />
+        <HeaderContainer>
+          <Title />
+          <IpSearchInput />
+          <IpLocationInfo />
+        </HeaderContainer>
+        <IpLocationMap />
+        {/* <Footer /> */}
       </ThemeProvider>
     </FontProvider>
   );
