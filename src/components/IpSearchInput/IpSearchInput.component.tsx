@@ -8,7 +8,7 @@ import {
 const IpSearchInput = () => {
   return (
     <IpSearchInputStyleContainer>
-      <IpSearchInputStyle />
+      <IpSearchInputStyle placeholder="Search for any IP address for domain" />
       <IpSearchBtn />
     </IpSearchInputStyleContainer>
   );

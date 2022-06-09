@@ -4,6 +4,8 @@ export const IpSearchInputStyle = styled.input`
   width: 500px;
   height: 30px;
 
+  transition: width 0.5s linear;
+
   border-radius: 10px;
   padding: 10px 20px;
 
@@ -13,8 +15,18 @@ export const IpSearchInputStyle = styled.input`
 
   color: ${({ theme }) => theme.colors.baseColorDark};
 
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
-  font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightMedium};
+  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
+  font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightBold};
+
+  ::placeholder {
+    font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightLight};
+    opacity: 0.8;
+  }
+
+  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+    transition: width 0.5s linear;
+    width: 280px;
+  }
 `;
 
 export const IpSearchInputStyleContainer = styled.div`

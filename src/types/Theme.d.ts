@@ -26,5 +26,10 @@ declare module "styled-components" {
       white: string;
       black: string;
     };
+    media: {
+      mobile: {
+        maxWidth: string;
+      };
+    };
   }
 }

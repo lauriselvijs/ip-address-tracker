@@ -7,4 +7,8 @@ export const TitleStyle = styled.h1`
   color: ${({ theme }) => theme.colors.secondaryColor};
 
   margin: 0px;
+
+  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+    font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
+  }
 `;

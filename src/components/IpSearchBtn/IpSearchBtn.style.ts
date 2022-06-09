@@ -15,7 +15,14 @@ export const IpSearchBtnStyle = styled.button`
 
   cursor: pointer;
 
+  transition: left 0.5s linear;
+
   &:active {
     transform: scale(0.9);
+  }
+
+  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+    transition: left 0.5s linear;
+    left: 270px;
   }
 `;
