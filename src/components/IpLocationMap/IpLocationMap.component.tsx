@@ -1,32 +1,33 @@
-import mapboxgl from "mapbox-gl";
-import React, { useEffect, useRef, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { IpLocationMapStyle } from "./IpLocationMap.style";
+import React from "react";
+import Map, { Marker } from "react-map-gl";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY
-  ? process.env.REACT_APP_MAPBOX_KEY
-  : "";
+// TODO:
+// [] wrap map component with map style
+// [] create map const file and put in map config
+// [] put marker inline style inside wrapper map style component
 
-console.log("test");
+export const mapOffset = 0.0003; // only if mobile
+export const mapZoomLevel = 18;
+export const mapStyle = "mapbox://styles/mapbox/streets-v9";
 
 const IpLocationMap = () => {
-  const mapContainer = useRef(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [lng, setLng] = useState(-71.05);
-  const [lat, setLat] = useState(42.36);
-  const [zoom, setZoom] = useState(18);
-
-  useEffect(() => {
-    if (map.current) return; // initialize map only once
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current || "",
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
-      zoom: zoom,
-    });
-  });
-
-  return <IpLocationMapStyle ref={mapContainer} />;
+  return (
+    <Map
+      initialViewState={{
+        longitude: -71.05,
+        latitude: 42.36 + mapOffset,
+        zoom: mapZoomLevel,
+      }}
+      style={{ outline: "none", height: "65vh" }}
+      mapStyle={mapStyle}
+      mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
+    >
+      <Marker longitude={-71.05} latitude={42.36}>
+        <FaMapMarkerAlt style={{ fontSize: "62px" }} />
+      </Marker>
+    </Map>
+  );
 };
 
 export default IpLocationMap;

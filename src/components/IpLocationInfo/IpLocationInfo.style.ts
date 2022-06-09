@@ -32,21 +32,21 @@ export const IpLocationInfoStyle = styled.div`
     height: 310px;
     margin-bottom: -340px;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 40px;
   }
 `;
 
 export const IpLocationInfoItem = styled.div`
   padding: 20px;
   padding-right: 40px;
-  width: 242px;
+  width: 245px;
   position: relative;
   transition: width 0.5s linear;
 
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
     transition: width 0.5s linear;
 
-    width: 305px;
+    width: 320px;
     padding: 0px;
     text-align: center;
   }

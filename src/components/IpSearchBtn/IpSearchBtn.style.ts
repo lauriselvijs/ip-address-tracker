@@ -23,6 +23,6 @@ export const IpSearchBtnStyle = styled.button`
 
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
     transition: left 0.5s linear;
-    left: 270px;
+    left: 290px;
   }
 `;

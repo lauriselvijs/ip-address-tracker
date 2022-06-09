@@ -25,7 +25,7 @@ export const IpSearchInputStyle = styled.input`
 
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
     transition: width 0.5s linear;
-    width: 280px;
+    width: 300px;
   }
 `;
 
