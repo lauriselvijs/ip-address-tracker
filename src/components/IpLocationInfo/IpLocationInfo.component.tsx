@@ -1,18 +1,38 @@
-import React from "react";
-import { IpLocationInfoStyle } from "./IpLocationInfo.style";
+import React, { useMemo, useState } from "react";
+import {
+  IpLocationInfoAttributesDivider,
+  IpLocationInfoItem,
+  IpLocationInfoItemContent,
+  IpLocationInfoItemTitle,
+  IpLocationInfoStyle,
+} from "./IpLocationInfo.style";
 
 // TODO:
-// [] change table to flex box
-// [] add separator between items
+// [x] change table to flex box
+// [x] add separator between items
 const IpLocationInfo = () => {
+  const [ipLocationInfo, setIpLocationInfo] = useState([
+    { title: "IP ADDRESS", desc: "192.212.174.101" },
+    { title: "LOCATION", desc: "Brooklyn,NY 10001" },
+    { title: "TIMEZONE", desc: "UTC-05:00" },
+    { title: "ISP", desc: "Space Starlink" },
+  ]);
+
+  const IpLocationInfoAttributes = useMemo(
+    () =>
+      ipLocationInfo.map(({ title, desc }, index) => (
+        <IpLocationInfoItem key={title}>
+          <IpLocationInfoItemTitle>{title}</IpLocationInfoItemTitle>
+          <IpLocationInfoItemContent>{desc}</IpLocationInfoItemContent>
+          <IpLocationInfoAttributesDivider key={index} />
+        </IpLocationInfoItem>
+      )),
+    [ipLocationInfo]
+  );
+
   return (
-    <IpLocationInfoStyle>
-      <tr>
-        <th>IP ADDRESS</th>
-        <th>LOCATION</th>
-        <th>TIMEZONE</th>
-        <th>ISP</th>
-      </tr>
+    <IpLocationInfoStyle itemCount={ipLocationInfo.length}>
+      {IpLocationInfoAttributes}
     </IpLocationInfoStyle>
   );
 };

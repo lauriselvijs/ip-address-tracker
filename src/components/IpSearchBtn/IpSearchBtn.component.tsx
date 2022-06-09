@@ -1,11 +1,13 @@
 import React from "react";
 import { IpSearchBtnStyle } from "./IpSearchBtn.style";
-
-// TODO:
-// [] Replace button name with arrow head
+import { IoIosArrowForward } from "react-icons/io";
 
 const IpSearchBtn = () => {
-  return <IpSearchBtnStyle>&gt;</IpSearchBtnStyle>;
+  return (
+    <IpSearchBtnStyle>
+      <IoIosArrowForward />
+    </IpSearchBtnStyle>
+  );
 };
 
 export default IpSearchBtn;

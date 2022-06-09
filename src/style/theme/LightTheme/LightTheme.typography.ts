@@ -1,7 +1,7 @@
 export const typography = {
   fontSize: {
     fontSizeLarge: "32px",
-    fontSizeMedium: "18px",
+    fontSizeMedium: "26px",
     fontSizeSmall: "11px",
   },
 };
