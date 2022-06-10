@@ -24,7 +24,7 @@ const App = () => {
           <IpSearchInput />
           <IpLocationInfo />
         </HeaderContainer>
-        <IpLocationMap />
+        {/* <IpLocationMap /> */}
         {/* <Footer /> */}
       </ThemeProvider>
     </FontProvider>

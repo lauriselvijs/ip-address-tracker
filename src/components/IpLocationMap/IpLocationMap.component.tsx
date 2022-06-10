@@ -1,15 +1,11 @@
 import React from "react";
 import Map, { Marker } from "react-map-gl";
 import { FaMapMarkerAlt } from "react-icons/fa";
-
-// TODO:
-// [] wrap map component with map style
-// [] create map const file and put in map config
-// [] put marker inline style inside wrapper map style component
-
-export const mapOffset = 0.0003; // only if mobile
-export const mapZoomLevel = 18;
-export const mapStyle = "mapbox://styles/mapbox/streets-v9";
+import {
+  mapOffset,
+  mapStyle,
+  mapZoomLevel,
+} from "../../constants/IpLocationMap.const";
 
 const IpLocationMap = () => {
   return (
