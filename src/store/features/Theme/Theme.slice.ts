@@ -16,5 +16,5 @@ export const Theme = createSlice({
 });
 
 export const ThemeActions = Theme.actions;
-
-export default Theme.reducer;
+export const ThemeReducer = Theme.reducer;
+export const ThemeName = Theme.name;

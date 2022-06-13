@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { useGetIpQuery } from "../../store/features/Ip/Ip.service";
+import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.service";
 import {
   IpLocationInfoAttributesDivider,
   IpLocationInfoItem,
@@ -8,6 +10,26 @@ import {
 } from "./IpLocationInfo.style";
 
 const IpLocationInfo = () => {
+  // const {
+  //   data: ipData,
+  //   error,
+  //   isLoading,
+  //   isSuccess: ipIsSuccessful,
+  //   isError,
+  // } = useGetIpQuery({
+  //   format: "json",
+  // });
+
+  // const { ip } = ipData || {};
+
+  // const { data: IpInfoData } = useGetIpInfoQuery(ip || "", {
+  //   skip: !ipIsSuccessful,
+  // });
+
+  // const { city } = IpInfoData?.location || {};
+
+  // console.log(city);
+
   const [ipLocationInfo, setIpLocationInfo] = useState([
     { title: "IP ADDRESS", desc: "192.212.174.101" },
     { title: "LOCATION", desc: "Brooklyn, NY 10001" },

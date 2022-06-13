@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import {
   persistReducer,
   FLUSH,
@@ -11,12 +12,17 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import rootReducer from "./reducer";
+import { IpApi, IpApiReducerPath } from "../features/Ip/Ip.service";
+import {
+  IpInfoApi,
+  IpInfoApiReducerPath,
+} from "../features/IpInfo/IpInfo.service";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  // blacklist: [],
+  blacklist: [IpApiReducerPath, IpInfoApiReducerPath],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -28,10 +34,14 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    })
+      .concat(IpApi.middleware)
+      .concat(IpInfoApi.middleware),
 });
 
 export const persistor = persistStore(store);
+
+setupListeners(store.dispatch);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
