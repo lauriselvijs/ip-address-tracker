@@ -18,9 +18,10 @@ import {
   IpLocationInfoStyle,
 } from "./IpLocationInfo.style";
 import BeatLoader from "react-spinners/BeatLoader";
+import { IpName } from "../../store/features/Ip/Ip.slice";
 
 const IpLocationInfo = () => {
-  const { ipFetch, ip } = useAppSelector((state: RootState) => state.ip);
+  const { ipFetch, ip } = useAppSelector((state: RootState) => state[IpName]);
   const { data: IpInfoData, isLoading } = useGetIpInfoQuery(ip, {
     skip: !ipFetch,
   });

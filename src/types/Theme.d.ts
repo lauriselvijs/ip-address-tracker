@@ -23,6 +23,7 @@ declare module "styled-components" {
       baseColor: string;
       baseColorDark: string;
       secondaryColor: string;
+      secondaryColorLight: string;
       white: string;
       black: string;
     };

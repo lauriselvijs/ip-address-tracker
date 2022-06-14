@@ -9,9 +9,10 @@ import {
 import { useAppDispatch, useAppSelector } from "../../hooks/Store.hook";
 import { RootState } from "../../store/app/store";
 import { IpActions } from "../../store/features/Ip/Ip.slice";
+import { IpName } from "../../store/features/Ip/Ip.slice";
 
 const IpSearchInput = () => {
-  const { ip } = useAppSelector((state: RootState) => state.ip);
+  const { ip } = useAppSelector((state: RootState) => state[IpName]);
 
   const appDispatch = useAppDispatch();
   const { setIp } = bindActionCreators(IpActions, appDispatch);
