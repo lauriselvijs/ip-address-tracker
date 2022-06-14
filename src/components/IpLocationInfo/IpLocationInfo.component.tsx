@@ -1,6 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useGetIpQuery } from "../../store/features/Ip/Ip.service";
+import {
+  IP_ADDRESS,
+  ISP,
+  LOCATION,
+  TIMEZONE,
+} from "../../constants/IpInfo.const";
+import { useAppSelector } from "../../hooks/Store.hook";
+import { RootState } from "../../store/app/store";
 import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.service";
+import { toLocationString } from "../../utils/Location.util";
+import { timeStringToTimeZoneOffset } from "../../utils/TimeFormat.uti";
 import {
   IpLocationInfoAttributesDivider,
   IpLocationInfoItem,
@@ -8,48 +17,82 @@ import {
   IpLocationInfoItemTitle,
   IpLocationInfoStyle,
 } from "./IpLocationInfo.style";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const IpLocationInfo = () => {
-  // const {
-  //   data: ipData,
-  //   error,
-  //   isLoading,
-  //   isSuccess: ipIsSuccessful,
-  //   isError,
-  // } = useGetIpQuery({
-  //   format: "json",
-  // });
+  const { ipFetch, ip } = useAppSelector((state: RootState) => state.ip);
+  const { data: IpInfoData, isLoading } = useGetIpInfoQuery(ip, {
+    skip: !ipFetch,
+  });
 
-  // const { ip } = ipData || {};
+  const { ip: ipAddress } = IpInfoData || {};
+  const { city, postal } = IpInfoData?.location || {};
+  const { abbreviation, current_time } = IpInfoData?.time_zone || {};
+  const { organization: ispName } = IpInfoData?.connection || {};
 
-  // const { data: IpInfoData } = useGetIpInfoQuery(ip || "", {
-  //   skip: !ipIsSuccessful,
-  // });
-
-  // const { city } = IpInfoData?.location || {};
-
-  // console.log(city);
-
-  const [ipLocationInfo, setIpLocationInfo] = useState([
-    { title: "IP ADDRESS", desc: "192.212.174.101" },
-    { title: "LOCATION", desc: "Brooklyn, NY 10001" },
-    { title: "TIMEZONE", desc: "UTC-05:00" },
-    { title: "ISP", desc: "Space Starlink" },
-  ]);
-
-  const ipLocationInfoAttributes = useMemo(
-    () =>
-      ipLocationInfo.map(({ title, desc }, index) => (
-        <IpLocationInfoItem key={title}>
-          <IpLocationInfoItemTitle>{title}</IpLocationInfoItemTitle>
-          <IpLocationInfoItemContent>{desc}</IpLocationInfoItemContent>
-          <IpLocationInfoAttributesDivider firstElementIndex={index} />
-        </IpLocationInfoItem>
-      )),
-    [ipLocationInfo]
+  const ipAddressBlock = useMemo(
+    () => (
+      <IpLocationInfoItem>
+        <IpLocationInfoItemTitle>{IP_ADDRESS}</IpLocationInfoItemTitle>
+        <IpLocationInfoItemContent>
+          {!isLoading ? ipAddress : <BeatLoader />}
+        </IpLocationInfoItemContent>
+      </IpLocationInfoItem>
+    ),
+    [isLoading, ipAddress]
   );
 
-  return <IpLocationInfoStyle>{ipLocationInfoAttributes}</IpLocationInfoStyle>;
+  const ipLocation = useMemo(
+    () => (
+      <IpLocationInfoItem>
+        <IpLocationInfoAttributesDivider />
+        <IpLocationInfoItemTitle>{LOCATION}</IpLocationInfoItemTitle>
+        <IpLocationInfoItemContent>
+          {!isLoading ? toLocationString(city, postal) : <BeatLoader />}
+        </IpLocationInfoItemContent>
+      </IpLocationInfoItem>
+    ),
+    [isLoading, city, postal]
+  );
+
+  const ipLocationTime = useMemo(
+    () => (
+      <IpLocationInfoItem>
+        <IpLocationInfoAttributesDivider />
+        <IpLocationInfoItemTitle>{TIMEZONE}</IpLocationInfoItemTitle>
+        <IpLocationInfoItemContent>
+          {!isLoading ? (
+            timeStringToTimeZoneOffset(abbreviation, current_time)
+          ) : (
+            <BeatLoader />
+          )}
+        </IpLocationInfoItemContent>
+      </IpLocationInfoItem>
+    ),
+    [isLoading, abbreviation, current_time]
+  );
+
+  const ipIspName = useMemo(
+    () => (
+      <IpLocationInfoItem>
+        <IpLocationInfoAttributesDivider />
+        <IpLocationInfoItemTitle>{ISP}</IpLocationInfoItemTitle>
+        <IpLocationInfoItemContent>
+          {!isLoading ? ispName : <BeatLoader />}
+        </IpLocationInfoItemContent>
+      </IpLocationInfoItem>
+    ),
+    [isLoading, ispName]
+  );
+
+  return (
+    <IpLocationInfoStyle>
+      {ipAddressBlock}
+      {ipLocation}
+      {ipLocationTime}
+      {ipIspName}
+    </IpLocationInfoStyle>
+  );
 };
 
 export default IpLocationInfo;

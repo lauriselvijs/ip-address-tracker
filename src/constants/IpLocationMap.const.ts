@@ -1,3 +1,3 @@
-export const mapOffset = 0.0003; // only if mobile
-export const mapZoomLevel = 18;
+export const mapOffset = 0.0004; // only if mobile
+export const mapZoomLevel = 14;
 export const mapStyle = "mapbox://styles/mapbox/streets-v9";

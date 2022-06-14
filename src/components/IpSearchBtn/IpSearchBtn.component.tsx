@@ -1,22 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { IpSearchBtnStyle } from "./IpSearchBtn.style";
 import { IoIosArrowForward } from "react-icons/io";
-import { useGetIpQuery } from "../../store/features/Ip/Ip.service";
+import { useAppDispatch } from "../../hooks/Store.hook";
+import { bindActionCreators } from "@reduxjs/toolkit";
+import { IpActions } from "../../store/features/Ip/Ip.slice";
 
 const IpSearchBtn = () => {
-  // const {
-  //   data: ipData,
-  //   error,
-  //   isLoading,
-  //   isSuccess: ipIsSuccessful,
-  //   isError,
-  // } = useGetIpQuery({
-  //   format: "json",
-  // });
+  const appDispatch = useAppDispatch();
+  const { setIpFetch } = bindActionCreators(IpActions, appDispatch);
 
-  // const { ip } = ipData || {};
-
-  const onIpSearchBtnClick = () => {};
+  const onIpSearchBtnClick = (): void => {
+    setIpFetch();
+  };
 
   return (
     <IpSearchBtnStyle>

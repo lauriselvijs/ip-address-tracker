@@ -52,20 +52,13 @@ export const IpLocationInfoItem = styled.div`
   }
 `;
 
-export const IpLocationInfoAttributesDivider = styled.div<IIpLocationInfoAttributesDivider>`
-  ${({ firstElementIndex }) =>
-    firstElementIndex !== 0
-      ? css`
-          position: absolute;
-          top: 35px;
-          left: -5px;
-          border-left: 1px solid ${({ theme }) => theme.colors.baseColor};
-          height: 68px;
-          opacity: 0.2;
-        `
-      : css`
-          display: none;
-        `}
+export const IpLocationInfoAttributesDivider = styled.div`
+  position: absolute;
+  top: 35px;
+  left: -5px;
+  border-left: 1px solid ${({ theme }) => theme.colors.baseColor};
+  height: 68px;
+  opacity: 0.2;
 
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
     display: none;

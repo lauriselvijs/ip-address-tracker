@@ -6,12 +6,16 @@ export const Ip = createSlice({
   name: IP_SLICE_NAME,
   initialState,
   reducers: {
-    setIpInfo: (state, action: PayloadAction<string>) => {
+    setIp: (state, action: PayloadAction<string>) => {
       state.ip = action.payload;
+      state.ipFetch = false;
+    },
+    setIpFetch: (state) => {
+      state.ipFetch = true;
     },
   },
 });
 
 export const IpActions = Ip.actions;
 export const IpReducer = Ip.reducer;
-export const IpReducerName = Ip.name;
+export const IpName = Ip.name;

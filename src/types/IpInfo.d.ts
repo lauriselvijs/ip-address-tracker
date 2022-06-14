@@ -1,8 +1,8 @@
 export interface IIpInfo {
   ip: string;
   type: string;
-  carrier: {
-    name: null;
+  connection: {
+    organization: string;
   };
   location: {
     city: string;

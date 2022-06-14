@@ -16,7 +16,7 @@ export const IpInfoApi = createApi({
   }),
   endpoints: (builder) => ({
     getIpInfo: builder.query<IIpInfo, string>({
-      query: (ip) => {
+      query: (ip = "") => {
         return {
           url: `/${ip}`,
         };
@@ -29,3 +29,4 @@ export const { useGetIpInfoQuery } = IpInfoApi;
 
 export const IpInfoApiReducer = IpInfoApi.reducer;
 export const IpInfoApiReducerPath = IpInfoApi.reducerPath;
+export const IpInfoApiMiddleware = IpInfoApi.middleware;

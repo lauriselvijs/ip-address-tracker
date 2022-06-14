@@ -9,6 +9,8 @@ import Title from "../Title";
 import IpSearchInput from "../IpSearchInput";
 import IpLocationMap from "../IpLocationMap";
 import IpLocationInfo from "../IpLocationInfo";
+import { useAppSelector } from "../../hooks/Store.hook";
+import { RootState } from "../../store/app/store";
 
 const App = () => {
   const {
@@ -24,7 +26,7 @@ const App = () => {
           <IpSearchInput />
           <IpLocationInfo />
         </HeaderContainer>
-        {/* <IpLocationMap /> */}
+        <IpLocationMap />
         {/* <Footer /> */}
       </ThemeProvider>
     </FontProvider>

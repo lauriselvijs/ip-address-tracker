@@ -3,8 +3,8 @@ import { IIpInfo } from "../../../types/IpInfo";
 const initialState: IIpInfo = {
   ip: "",
   type: "",
-  carrier: {
-    name: null,
+  connection: {
+    organization: "",
   },
   location: {
     city: "",

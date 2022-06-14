@@ -12,17 +12,18 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import rootReducer from "./reducer";
-import { IpApi, IpApiReducerPath } from "../features/Ip/Ip.service";
+import { IpApiMiddleware, IpApiReducerPath } from "../features/Ip/Ip.service";
 import {
-  IpInfoApi,
+  IpInfoApiMiddleware,
   IpInfoApiReducerPath,
 } from "../features/IpInfo/IpInfo.service";
+import { IpName } from "../features/Ip/Ip.slice";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: [IpApiReducerPath, IpInfoApiReducerPath],
+  blacklist: [IpApiReducerPath, IpInfoApiReducerPath, IpName],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -35,8 +36,8 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     })
-      .concat(IpApi.middleware)
-      .concat(IpInfoApi.middleware),
+      .concat(IpApiMiddleware)
+      .concat(IpInfoApiMiddleware),
 });
 
 export const persistor = persistStore(store);

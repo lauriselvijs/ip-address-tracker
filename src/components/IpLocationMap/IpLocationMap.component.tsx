@@ -6,23 +6,38 @@ import {
   mapStyle,
   mapZoomLevel,
 } from "../../constants/IpLocationMap.const";
+import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.service";
+import { useAppSelector } from "../../hooks/Store.hook";
+import { RootState } from "../../store/app/store";
 
+// TODO:
+// [] get theme mobile size from state
 const IpLocationMap = () => {
-  return (
+  const { ipFetch, ip } = useAppSelector((state: RootState) => state.ip);
+
+  const { data: IpInfoData, isFetching } = useGetIpInfoQuery(ip || "", {
+    skip: !ipFetch,
+  });
+
+  const { longitude, latitude } = IpInfoData?.location || {};
+
+  return !isFetching && IpInfoData ? (
     <Map
       initialViewState={{
-        longitude: -71.05,
-        latitude: 42.36 + mapOffset,
+        longitude: longitude || 0,
+        latitude: latitude || 0 + mapOffset,
         zoom: mapZoomLevel,
       }}
       style={{ outline: "none", height: "65vh" }}
       mapStyle={mapStyle}
       mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
     >
-      <Marker longitude={-71.05} latitude={42.36}>
+      <Marker longitude={longitude || 0} latitude={latitude || 0}>
         <FaMapMarkerAlt style={{ fontSize: "62px" }} />
       </Marker>
     </Map>
+  ) : (
+    <></>
   );
 };
 
