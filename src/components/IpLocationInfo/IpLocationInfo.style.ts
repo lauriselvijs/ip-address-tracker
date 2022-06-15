@@ -1,9 +1,4 @@
-import styled, { css } from "styled-components";
-
-export interface IIpLocationInfoAttributesDivider {
-  // omit first item of array
-  firstElementIndex: number;
-}
+import styled, { css } from "styled-components/macro";
 
 export const IpLocationInfoStyle = styled.div`
   z-index: 1;
@@ -31,13 +26,13 @@ export const IpLocationInfoStyle = styled.div`
 
     height: 310px;
     margin-bottom: -340px;
-    padding-top: 25px;
     padding-bottom: 40px;
   }
 `;
 
 export const IpLocationInfoItem = styled.div`
   padding: 20px;
+  padding-top: 10px;
   padding-right: 40px;
   width: 245px;
   position: relative;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const TitleStyle = styled.h1`
   font-size: ${({ theme }) => theme.typography.fontSize.fontSizeLarge};

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import BackgroundHeaderImage from "../../asset/images/pattern-bg.png";
 
 export const HeaderContainerStyle = styled.header`

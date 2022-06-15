@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const IpSearchInputStyle = styled.input`
   width: 500px;
