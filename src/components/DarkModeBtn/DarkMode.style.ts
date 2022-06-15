@@ -13,6 +13,8 @@ export const DarkModeBtnStyle = styled.button`
   height: 40px;
   width: 120px;
 
+  color: ${({ theme }) => theme.colors.baseColor};
+
   background-color: ${({ theme }) => theme.colors.secondaryColor};
 
   &:active {

@@ -15,10 +15,13 @@ export const IpSearchInputStyle = styled.input`
 
   color: ${({ theme }) => theme.colors.baseColorDark};
 
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
+
   font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
   font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightBold};
 
   ::placeholder {
+    color: ${({ theme }) => theme.colors.baseColor};
     font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightLight};
     opacity: 0.8;
   }

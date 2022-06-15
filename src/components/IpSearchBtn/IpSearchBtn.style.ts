@@ -21,6 +21,8 @@ export const IpSearchBtnStyle = styled.button`
     transform: scale(0.9);
   }
 
+  color: ${({ theme }) => theme.colors.secondaryColor};
+
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
     transition: left 0.5s linear;
     left: 290px;

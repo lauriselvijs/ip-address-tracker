@@ -8,7 +8,9 @@ export const Theme = createSlice({
   initialState,
   reducers: {
     setTheme: (state, action: PayloadAction<DefaultTheme>) => {
-      Object.assign(state, action.payload);
+      if (state.themeId !== action.payload.themeId) {
+        Object.assign(state, action.payload);
+      }
     },
   },
 });

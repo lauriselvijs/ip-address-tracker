@@ -1,8 +1,7 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import Footer from "../Footer";
 import { GlobalStyle } from "../../style/base/Global.style";
-import LightTheme from "../../style/theme/LightTheme";
 import FontProvider from "../FontProvider";
 import HeaderContainer from "../HeaderContainer";
 import Title from "../Title";
@@ -10,13 +9,16 @@ import IpSearchInput from "../IpSearchInput";
 import IpLocationMap from "../IpLocationMap";
 import IpLocationInfo from "../IpLocationInfo";
 import DarkModeBtn from "../DarkModeBtn";
+import { ThemeName } from "../../store/features/Theme/Theme.slice";
+import { RootState } from "../../store/app/store";
+import { useAppSelector } from "../../hooks/Store.hook";
 
 const App = () => {
-  const [theme, setTheme] = useState(LightTheme);
+  const theme = useAppSelector((state: RootState) => state[ThemeName]);
 
   const {
     font: { fontFamilyName, fontWeight },
-  } = LightTheme;
+  } = theme;
 
   return (
     <FontProvider fontFamilyName={fontFamilyName} fontWeight={fontWeight}>
