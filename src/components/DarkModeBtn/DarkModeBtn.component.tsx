@@ -14,7 +14,10 @@ const DarkModeBtn = () => {
   };
 
   return (
-    <DarkModeBtnStyle onClick={onDarkModeBtnClick}>
+    <DarkModeBtnStyle
+      onClick={onDarkModeBtnClick}
+      aria-label="switch to dark mode"
+    >
       {themeIsSet ? <BiSun /> : <BiMoon />}
     </DarkModeBtnStyle>
   );

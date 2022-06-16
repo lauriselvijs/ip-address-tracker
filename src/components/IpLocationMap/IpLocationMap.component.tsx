@@ -30,23 +30,25 @@ const IpLocationMap = () => {
   );
 
   return !isFetching && longitude && latitude ? (
-    <Map
-      ref={mapRef}
-      initialViewState={{
-        longitude: longitude,
-        latitude: latitude,
-        zoom: MAP_ZOOM_LEVEL,
-      }}
-      style={{ outline: "none", height: "65vh" }}
-      mapStyle={MAP_STYLE}
-      mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
-    >
-      <Marker longitude={longitude} latitude={latitude}>
-        <FaMapMarkerAlt style={{ fontSize: "62px" }} />
-      </Marker>
-    </Map>
+    <main>
+      <Map
+        ref={mapRef}
+        initialViewState={{
+          longitude: longitude,
+          latitude: latitude,
+          zoom: MAP_ZOOM_LEVEL,
+        }}
+        style={{ outline: "none", height: "65vh" }}
+        mapStyle={MAP_STYLE}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
+      >
+        <Marker longitude={longitude} latitude={latitude}>
+          <FaMapMarkerAlt style={{ fontSize: "62px" }} />
+        </Marker>
+      </Map>
+    </main>
   ) : (
-    <></>
+    <main></main>
   );
 };
 

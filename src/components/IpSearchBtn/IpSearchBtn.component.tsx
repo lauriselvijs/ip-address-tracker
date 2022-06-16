@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { IpSearchBtnStyle } from "./IpSearchBtn.style";
 import { IoIosArrowForward } from "react-icons/io";
 import { useAppDispatch } from "../../hooks/Store.hook";
@@ -14,7 +14,7 @@ const IpSearchBtn = () => {
   };
 
   return (
-    <IpSearchBtnStyle>
+    <IpSearchBtnStyle aria-label="search ip">
       <IoIosArrowForward onClick={onIpSearchBtnClick} />
     </IpSearchBtnStyle>
   );

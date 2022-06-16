@@ -35,9 +35,11 @@ const IpLocationInfo = () => {
     () => (
       <IpLocationInfoItem>
         <IpLocationInfoItemTitle>{IP_ADDRESS}</IpLocationInfoItemTitle>
-        <IpLocationInfoItemContent>
-          {!isLoading ? ipAddress : <BeatLoader />}
-        </IpLocationInfoItemContent>
+        {(ipAddress || isLoading) && (
+          <IpLocationInfoItemContent>
+            {!isLoading ? ipAddress : <BeatLoader />}
+          </IpLocationInfoItemContent>
+        )}
       </IpLocationInfoItem>
     ),
     [isLoading, ipAddress]
@@ -48,9 +50,11 @@ const IpLocationInfo = () => {
       <IpLocationInfoItem>
         <IpLocationInfoAttributesDivider />
         <IpLocationInfoItemTitle>{LOCATION}</IpLocationInfoItemTitle>
-        <IpLocationInfoItemContent>
-          {!isLoading ? toLocationString(city, postal) : <BeatLoader />}
-        </IpLocationInfoItemContent>
+        {(ipAddress || isLoading) && (
+          <IpLocationInfoItemContent>
+            {!isLoading ? toLocationString(city, postal) : <BeatLoader />}
+          </IpLocationInfoItemContent>
+        )}
       </IpLocationInfoItem>
     ),
     [isLoading, city, postal]
@@ -61,13 +65,15 @@ const IpLocationInfo = () => {
       <IpLocationInfoItem>
         <IpLocationInfoAttributesDivider />
         <IpLocationInfoItemTitle>{TIMEZONE}</IpLocationInfoItemTitle>
-        <IpLocationInfoItemContent>
-          {!isLoading ? (
-            timeStringToTimeZoneOffset(abbreviation, current_time)
-          ) : (
-            <BeatLoader />
-          )}
-        </IpLocationInfoItemContent>
+        {(ipAddress || isLoading) && (
+          <IpLocationInfoItemContent>
+            {!isLoading ? (
+              timeStringToTimeZoneOffset(abbreviation, current_time)
+            ) : (
+              <BeatLoader />
+            )}
+          </IpLocationInfoItemContent>
+        )}
       </IpLocationInfoItem>
     ),
     [isLoading, abbreviation, current_time]
@@ -78,9 +84,11 @@ const IpLocationInfo = () => {
       <IpLocationInfoItem>
         <IpLocationInfoAttributesDivider />
         <IpLocationInfoItemTitle>{ISP}</IpLocationInfoItemTitle>
-        <IpLocationInfoItemContent>
-          {!isLoading ? ispName : <BeatLoader />}
-        </IpLocationInfoItemContent>
+        {(ipAddress || isLoading) && (
+          <IpLocationInfoItemContent>
+            {!isLoading ? ispName : <BeatLoader />}
+          </IpLocationInfoItemContent>
+        )}
       </IpLocationInfoItem>
     ),
     [isLoading, ispName]
