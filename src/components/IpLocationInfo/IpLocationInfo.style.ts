@@ -60,13 +60,13 @@ export const IpLocationInfoAttributesDivider = styled.div`
   }
 `;
 
-export const IpLocationInfoItemTitle = styled.h3`
+export const IpLocationInfoItemTitle = styled.h2`
   font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
   color: ${({ theme }) => theme.colors.baseColor};
   letter-spacing: 1px;
 `;
 
-export const IpLocationInfoItemContent = styled.h2`
+export const IpLocationInfoItemContent = styled.h3`
   font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
   font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightMedium};
   color: ${({ theme }) => theme.colors.baseColorDark};
