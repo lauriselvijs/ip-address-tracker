@@ -24,6 +24,7 @@ declare module "styled-components" {
       baseColorDark: string;
       secondaryColor: string;
       secondaryColorLight: string;
+      secondaryColorDark: string;
       white: string;
       black: string;
     };

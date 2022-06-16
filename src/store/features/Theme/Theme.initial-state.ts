@@ -23,6 +23,7 @@ const initialState: DefaultTheme = {
     baseColorDark: "",
     secondaryColor: "",
     secondaryColorLight: "",
+    secondaryColorDark: "",
     white: "",
     black: "",
   },

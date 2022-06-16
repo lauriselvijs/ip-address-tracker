@@ -21,8 +21,6 @@ const IpSearchInput = () => {
     setIp(e.target.value);
   };
 
-  //54.85.132.205
-
   return (
     <IpSearchInputStyleContainer>
       <IpSearchInputStyle

@@ -13,9 +13,12 @@ export const FooterStyle = styled.footer`
 
   padding-bottom: 5px;
 
-  color: ${({ theme }) => theme.colors.baseColorDark};
+  color: ${({ theme }) => theme.colors.secondaryColorDark};
 
   a {
     color: ${({ theme }) => theme.colors.secondaryColorLight};
+  }
+
+  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
   }
 `;

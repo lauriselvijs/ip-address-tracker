@@ -31,8 +31,6 @@ export const useMapFocusOnDeviceScreen = (
       mapRef.current?.flyTo({
         center: [longitude, latitude],
       });
-
-    console.log("render");
   }, [isDesktop]);
 
   return mapRef;

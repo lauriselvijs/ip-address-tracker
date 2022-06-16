@@ -4,7 +4,7 @@ import { FooterStyle } from "./Footer.style";
 const Footer = () => {
   return (
     <FooterStyle>
-      Challenge by Challenge by{" "}
+      Challenge by{" "}
       <a
         rel="noreferrer"
         href="https://www.frontendmentor.io?ref=challenge"
