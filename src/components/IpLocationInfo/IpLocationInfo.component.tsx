@@ -14,17 +14,31 @@ import {
   IpLocationInfoAttributesDivider,
   IpLocationInfoItem,
   IpLocationInfoItemContent,
+  IpLocationInfoItemError,
   IpLocationInfoItemTitle,
   IpLocationInfoStyle,
 } from "./IpLocationInfo.style";
 import BeatLoader from "react-spinners/BeatLoader";
 import { IpName } from "../../store/features/Ip/Ip.slice";
+import { IIpInfoError } from "../../types/IpInfo";
 
 const IpLocationInfo = () => {
+  const [ipInfoError, setIpInfoError] = useState<IIpInfoError>();
   const { ipFetch, ip } = useAppSelector((state: RootState) => state[IpName]);
-  const { data: IpInfoData, isLoading } = useGetIpInfoQuery(ip, {
+  const {
+    data: IpInfoData,
+    isLoading,
+    isError,
+    error,
+  } = useGetIpInfoQuery(ip, {
     skip: !ipFetch,
   });
+
+  useEffect(() => {
+    isError && setIpInfoError(error as IIpInfoError);
+  }, [isError]);
+
+  const { message: ipErrorMsg } = ipInfoError?.data || {};
 
   const { ip: ipAddress } = IpInfoData || {};
   const { city, postal } = IpInfoData?.location || {};
@@ -94,7 +108,18 @@ const IpLocationInfo = () => {
     [isLoading, ispName]
   );
 
-  return (
+  const ipInfoErrorMsg = useMemo(
+    () => (
+      <IpLocationInfoItemError>
+        <IpLocationInfoItemTitle>{ipErrorMsg}</IpLocationInfoItemTitle>
+      </IpLocationInfoItemError>
+    ),
+    [isError, ipErrorMsg]
+  );
+
+  return isError ? (
+    <IpLocationInfoStyle>{ipInfoErrorMsg}</IpLocationInfoStyle>
+  ) : (
     <IpLocationInfoStyle>
       {ipAddressBlock}
       {ipLocation}

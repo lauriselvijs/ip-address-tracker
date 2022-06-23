@@ -15,3 +15,8 @@ export interface IIpInfo {
     current_time: string;
   };
 }
+
+interface IIpInfoError {
+  status: number;
+  data: { message: string };
+}

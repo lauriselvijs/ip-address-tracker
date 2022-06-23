@@ -47,6 +47,12 @@ export const IpLocationInfoItem = styled.div`
   }
 `;
 
+export const IpLocationInfoItemError = styled(IpLocationInfoItem)`
+  padding: 0px;
+  padding-top: 50px;
+  padding-left: 20px;
+`;
+
 export const IpLocationInfoAttributesDivider = styled.div`
   position: absolute;
   top: 35px;
