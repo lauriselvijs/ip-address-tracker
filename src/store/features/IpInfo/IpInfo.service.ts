@@ -12,11 +12,6 @@ import { IIpInfo } from "../../../types/IpInfo";
 import { IP_GEOLOCATION_BASE_URL } from "../../../constants/LocationByIpUrl.const";
 import { prepareReqHeaders } from "./IpInfo.util";
 
-interface IIpInfoError {
-  status: number;
-  data: { message: string };
-}
-
 export const IpInfoApi = createApi({
   reducerPath: IP_INFO_API_REDUCER_PATH,
   baseQuery: fetchBaseQuery({
