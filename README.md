@@ -123,7 +123,7 @@ Using RTK Query to fetch data from server
 - [w3schools HTML docs](https://www.w3schools.com/html/default.asp) - Great documentation to understand HTML
 - [ReactJS](https://reactjs.org/docs/getting-started.html) - Great documentation to understand ReactJS
 - [Redux Toolkit](https://redux-toolkit.js.org/usage/usage-guide) - Great documentation to understand Redux Toolkit
-- - [Styled Components](https://styled-components.com/docs) - Great documentation to understand better styled components
+- [Styled Components](https://styled-components.com/docs) - Great documentation to understand better styled components
 
 ## Author
 
