@@ -1,5 +1,3 @@
-export const IP_INFO_SLICE_NAME = "IpInfo";
-
 export const IP_INFO_API_REDUCER_PATH = "IpInfoApi";
 
 export const IP_GEOLOCATION_HEADERS = {

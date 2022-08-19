@@ -17,6 +17,7 @@ import {
   IpLocationInfoItemError,
   IpLocationInfoItemTitle,
   IpLocationInfoStyle,
+  IpLocationInfoErrMsg,
 } from "./IpLocationInfo.style";
 import BeatLoader from "react-spinners/BeatLoader";
 import { IpName } from "../../store/features/Ip/Ip.slice";
@@ -118,7 +119,7 @@ const IpLocationInfo = () => {
   );
 
   return isError ? (
-    <IpLocationInfoStyle>{ipInfoErrorMsg}</IpLocationInfoStyle>
+    <IpLocationInfoErrMsg>{ipInfoErrorMsg}</IpLocationInfoErrMsg>
   ) : (
     <IpLocationInfoStyle>
       {ipAddressBlock}
