@@ -41,10 +41,13 @@ const IpLocationInfo = () => {
 
   const { message: ipErrorMsg } = ipInfoError?.data || {};
 
-  const { ip: ipAddress } = IpInfoData || {};
-  const { city, postal } = IpInfoData?.location || {};
-  const { abbreviation, current_time } = IpInfoData?.time_zone || {};
-  const { organization: ispName } = IpInfoData?.connection || {};
+  const {
+    ip: ipAddress,
+    org: ispName,
+    city,
+    zipCode: postal,
+    gmt,
+  } = IpInfoData || {};
 
   const ipAddressBlock = useMemo(
     () => (
@@ -82,16 +85,12 @@ const IpLocationInfo = () => {
         <IpLocationInfoItemTitle>{TIMEZONE}</IpLocationInfoItemTitle>
         {(ipAddress || isLoading) && (
           <IpLocationInfoItemContent>
-            {!isLoading ? (
-              timeStringToTimeZoneOffset(abbreviation, current_time)
-            ) : (
-              <BeatLoader />
-            )}
+            {!isLoading ? gmt : <BeatLoader />}
           </IpLocationInfoItemContent>
         )}
       </IpLocationInfoItem>
     ),
-    [isLoading, abbreviation, current_time]
+    [isLoading, gmt]
   );
 
   const ipIspName = useMemo(

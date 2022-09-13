@@ -19,7 +19,7 @@ const IpLocationMap = () => {
   const { data: IpInfoData, isFetching } = useGetIpInfoQuery(ip, {
     skip: !ipFetch,
   });
-  const { longitude, latitude } = IpInfoData?.location || {};
+  const { longitude, latitude } = IpInfoData || {};
   const { maxWidth } = theme?.media.mobile || {};
 
   const mapRef = useMapFocusOnDeviceScreen(

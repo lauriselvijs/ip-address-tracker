@@ -20,6 +20,8 @@ const App = () => {
     font: { fontFamilyName, fontWeight },
   } = theme;
 
+  console.log("name", fontFamilyName);
+
   return (
     <FontProvider fontFamilyName={fontFamilyName} fontWeight={fontWeight}>
       <ThemeProvider theme={theme}>

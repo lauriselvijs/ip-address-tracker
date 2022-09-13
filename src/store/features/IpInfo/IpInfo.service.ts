@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {
+  FIND_ANY_IP_ADDRESS_API_KEY,
   IP_GEOLOCATION_HEADERS,
   IP_INFO_API_REDUCER_PATH,
 } from "./IpInfo.const";
@@ -18,7 +19,11 @@ export const IpInfoApi = createApi({
     getIpInfo: builder.query<IIpInfo, string>({
       query: (ip = "") => {
         return {
-          url: `/${ip}`,
+          url: "/iplocation",
+          params: {
+            ip,
+            apikey: FIND_ANY_IP_ADDRESS_API_KEY,
+          },
         };
       },
     }),
