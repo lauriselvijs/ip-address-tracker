@@ -18,13 +18,13 @@ export const IpLocationBaseStyle = styled.div`
 
   background-color: ${({ theme }) => theme.colors.secondaryColor};
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     transition: height, margin-bottom 0.5s linear;
 
-    height: 310px;
+    height: fit-content;
     margin-bottom: -340px;
     padding-bottom: 40px;
   }

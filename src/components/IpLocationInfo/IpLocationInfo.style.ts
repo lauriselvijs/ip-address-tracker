@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import { IpLocationBaseStyle } from "../../style/shared/IpLocation.style";
 
 export const IpLocationInfoStyle = styled(IpLocationBaseStyle)`
-  max-width: 100vw;
+  max-width: 80vw;
 `;
 
 export const IpLocationInfoErrMsg = styled(IpLocationBaseStyle)`
@@ -19,7 +19,7 @@ export const IpLocationInfoItem = styled.div`
   position: relative;
   transition: width 0.5s linear;
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     transition: width 0.5s linear;
 
     width: 320px;

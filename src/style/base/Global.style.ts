@@ -6,5 +6,9 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0px;
         margin: 0px;
         font-family: ${({ theme }) => theme.font.fontFamily};
+
+        @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
+            height: 135vh;
+        }
     }
 `;

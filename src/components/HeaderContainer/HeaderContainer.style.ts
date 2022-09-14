@@ -19,6 +19,9 @@ export const HeaderContainerStyle = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  gap: 20px;
+
   align-items: center;
 
   margin: 0px;

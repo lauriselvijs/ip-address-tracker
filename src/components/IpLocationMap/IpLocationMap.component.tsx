@@ -20,7 +20,7 @@ const IpLocationMap = () => {
     skip: !ipFetch,
   });
   const { longitude, latitude } = IpInfoData || {};
-  const { maxWidth } = theme?.media.mobile || {};
+  const { maxWidth } = theme?.media.tablet || {};
 
   const mapRef = useMapFocusOnDeviceScreen(
     longitude || 0,
@@ -38,7 +38,7 @@ const IpLocationMap = () => {
           latitude: latitude,
           zoom: MAP_ZOOM_LEVEL,
         }}
-        style={{ outline: "none", height: "65vh" }}
+        style={{ outline: "none", height: "100vh" }}
         mapStyle={MAP_STYLE}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
       >

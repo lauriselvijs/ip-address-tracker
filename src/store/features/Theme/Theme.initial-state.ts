@@ -31,6 +31,9 @@ const initialState: DefaultTheme = {
     mobile: {
       maxWidth: "",
     },
+    tablet: {
+      maxWidth: "",
+    },
   },
 };
 
