@@ -11,7 +11,7 @@ export const FooterStyle = styled.footer`
   bottom: 0;
   width: 100%;
 
-  padding-bottom: 5px;
+  padding-bottom: 0;
 
   color: ${({ theme }) => theme.colors.secondaryColorDark};
 
