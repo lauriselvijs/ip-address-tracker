@@ -31,8 +31,8 @@ Users should be able to:
 ### Screenshot
 
 ![ip address tracker desktop light mode](https://user-images.githubusercontent.com/85683069/190143799-f77e5d4c-f957-45a6-894b-9f4813efcb34.png)
-![ip address tracker mobile light mode](https://user-images.githubusercontent.com/85683069/190143794-7a3bf014-338b-406e-9c41-2598c051dd7f.png)
 ![ip address tracker desktop dark mode](https://user-images.githubusercontent.com/85683069/190143797-9e0ff321-a820-4e5c-90f6-a7afb4b295c3.png)
+![ip address tracker mobile light mode](https://user-images.githubusercontent.com/85683069/190143794-7a3bf014-338b-406e-9c41-2598c051dd7f.png)
 ![ip address tracker mobile dark mode](https://user-images.githubusercontent.com/85683069/190143788-0974f77e-0321-4bdb-9d76-2415609e2995.png)
 
 ### Links
