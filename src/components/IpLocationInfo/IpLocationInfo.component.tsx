@@ -9,7 +9,6 @@ import { useAppSelector } from "../../hooks/Store.hook";
 import { RootState } from "../../store/app/store";
 import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.service";
 import { toLocationString } from "../../utils/Location.util";
-import { timeStringToTimeZoneOffset } from "../../utils/TimeFormat.uti";
 import {
   IpLocationInfoAttributesDivider,
   IpLocationInfoItem,
@@ -21,10 +20,10 @@ import {
 } from "./IpLocationInfo.style";
 import BeatLoader from "react-spinners/BeatLoader";
 import { IpName } from "../../store/features/Ip/Ip.slice";
-import { IIpInfoError } from "../../types/IpInfo";
+import { IIpInfoError } from "../../types/IpInfo.d";
 
 const IpLocationInfo = () => {
-  const [ipInfoError, setIpInfoError] = useState<IIpInfoError>();
+  const [ipInfoErrorMsg, setIpInfoErrorMsg] = useState<string>();
   const { ipFetch, ip } = useAppSelector((state: RootState) => state[IpName]);
   const {
     data: IpInfoData,
@@ -36,10 +35,11 @@ const IpLocationInfo = () => {
   });
 
   useEffect(() => {
-    isError && setIpInfoError(error as IIpInfoError);
-  }, [isError]);
+    const errorMsg = error as IIpInfoError;
 
-  const { message: ipErrorMsg } = ipInfoError?.data || {};
+    isError &&
+      setIpInfoErrorMsg(errorMsg.data.message || errorMsg.data.Message);
+  }, [isError]);
 
   const {
     ip: ipAddress,
@@ -108,17 +108,17 @@ const IpLocationInfo = () => {
     [isLoading, ispName]
   );
 
-  const ipInfoErrorMsg = useMemo(
+  const ipInfoErrorMsgElement = useMemo(
     () => (
       <IpLocationInfoItemError>
-        <IpLocationInfoItemTitle>{ipErrorMsg}</IpLocationInfoItemTitle>
+        <IpLocationInfoItemTitle>{ipInfoErrorMsg}</IpLocationInfoItemTitle>
       </IpLocationInfoItemError>
     ),
-    [isError, ipErrorMsg]
+    [isError, ipInfoErrorMsg]
   );
 
   return isError ? (
-    <IpLocationInfoErrMsg>{ipInfoErrorMsg}</IpLocationInfoErrMsg>
+    <IpLocationInfoErrMsg>{ipInfoErrorMsgElement}</IpLocationInfoErrMsg>
   ) : (
     <IpLocationInfoStyle>
       {ipAddressBlock}

@@ -10,5 +10,5 @@ export interface IIpInfo {
 
 interface IIpInfoError {
   status: number;
-  data: { message: string };
+  data: { [key: string]: string };
 }

@@ -1,16 +1,14 @@
 import styled from "styled-components/macro";
 import { IpLocationBaseStyle } from "../../style/shared/IpLocation.style";
 
-export const IpLocationInfoStyle = styled(IpLocationBaseStyle)``;
+export const IpLocationInfoStyle = styled(IpLocationBaseStyle)`
+  max-width: 100vw;
+`;
 
 export const IpLocationInfoErrMsg = styled(IpLocationBaseStyle)`
-  width: 500px;
+  height: fit-content;
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
-    width: 400px;
-
-    transition: width;
-  }
+  padding: 20px;
 `;
 
 export const IpLocationInfoItem = styled.div`
@@ -30,11 +28,7 @@ export const IpLocationInfoItem = styled.div`
   }
 `;
 
-export const IpLocationInfoItemError = styled(IpLocationInfoItem)`
-  padding: 0px;
-  padding-top: 50px;
-  padding-left: 20px;
-`;
+export const IpLocationInfoItemError = styled.div``;
 
 export const IpLocationInfoAttributesDivider = styled.div`
   position: absolute;
