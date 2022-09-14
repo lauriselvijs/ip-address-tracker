@@ -16,20 +16,27 @@ import { useMapFocusOnDeviceScreen } from "../../hooks/Map.hook";
 const IpLocationMap = () => {
   const { ipFetch, ip } = useAppSelector((state: RootState) => state[IpName]);
   const theme = useAppSelector((state: RootState) => state[ThemeName]);
-  const { data: IpInfoData, isFetching } = useGetIpInfoQuery(ip, {
+  const {
+    data: IpInfoData,
+    isFetching,
+    isLoading,
+  } = useGetIpInfoQuery(ip, {
     skip: !ipFetch,
   });
   const { longitude, latitude } = IpInfoData || {};
   const { maxWidth } = theme?.media.tablet || {};
 
+  console.log(isLoading);
+
   const mapRef = useMapFocusOnDeviceScreen(
     longitude || 0,
     latitude || 0,
     maxWidth,
-    MAP_OFFSET
+    MAP_OFFSET,
+    isFetching
   );
 
-  return !isFetching && longitude && latitude ? (
+  return !isLoading && !isFetching && longitude && latitude ? (
     <main>
       <Map
         ref={mapRef}

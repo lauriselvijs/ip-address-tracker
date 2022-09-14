@@ -38,7 +38,7 @@ export const IpLocationInfoAttributesDivider = styled.div`
   height: 68px;
   opacity: 0.2;
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     display: none;
   }
 `;
@@ -57,7 +57,7 @@ export const IpLocationInfoItemContent = styled.h3`
   margin-top: 0px;
   padding-top: 2px;
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     margin: 0px;
   }
 `;

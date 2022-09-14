@@ -20,10 +20,18 @@ export const HeaderContainerStyle = styled.header`
   flex-direction: column;
   justify-content: space-evenly;
 
-  gap: 20px;
-
   align-items: center;
 
   margin: 0px;
   height: 35vh;
+
+  @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
+    height: 30vh;
+
+    justify-content: flex-start;
+
+    gap: 20px;
+
+    padding-top: 20px;
+  }
 `;

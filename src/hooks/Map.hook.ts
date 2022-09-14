@@ -6,7 +6,8 @@ export const useMapFocusOnDeviceScreen = (
   longitude: number,
   latitude: number,
   maxWidth: string,
-  mapOffset: number
+  mapOffset: number,
+  isFetching: boolean
 ) => {
   const mapRef = useRef<MapRef | null>(null);
 
@@ -19,19 +20,23 @@ export const useMapFocusOnDeviceScreen = (
       mapRef.current?.flyTo({
         center: [longitude, latitude + mapOffset],
       });
+
+    console.log(isDesktop);
   }, []);
 
   useEffect(() => {
-    !isDesktop &&
-      mapRef.current?.flyTo({
-        center: [longitude, latitude + mapOffset],
-      });
+    setTimeout(() => {
+      !isDesktop &&
+        mapRef.current?.flyTo({
+          center: [longitude, latitude + mapOffset],
+        });
+    }, 500);
 
     isDesktop &&
       mapRef.current?.flyTo({
         center: [longitude, latitude],
       });
-  }, [isDesktop]);
+  }, [isDesktop, isFetching]);
 
   return mapRef;
 };
