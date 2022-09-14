@@ -26,8 +26,6 @@ const IpLocationMap = () => {
   const { longitude, latitude } = IpInfoData || {};
   const { maxWidth } = theme?.media.tablet || {};
 
-  console.log(isLoading);
-
   const mapRef = useMapFocusOnDeviceScreen(
     longitude || 0,
     latitude || 0,
