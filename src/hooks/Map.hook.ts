@@ -20,8 +20,6 @@ export const useMapFocusOnDeviceScreen = (
       mapRef.current?.flyTo({
         center: [longitude, latitude + mapOffset],
       });
-
-    console.log(isDesktop);
   }, []);
 
   useEffect(() => {
