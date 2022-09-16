@@ -141,5 +141,5 @@ Using RTK Query to fetch data from server
 
 ## Author
 
-- Website - [Lauris](https://portfolio-rouge-seven.vercel.app/)
+- Website - [Lauris](https://b2cf56-portfolio.netlify.app/projects)
 - Frontend Mentor - [lauriselvijs](https://www.frontendmentor.io/profile/lauriselvijs)
