@@ -1,14 +1,19 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import BeatLoader from "react-spinners/BeatLoader";
+
 import {
   IP_ADDRESS,
   ISP,
   LOCATION,
   TIMEZONE,
 } from "../../constants/IpInfo.const";
-import { useAppSelector } from "../../hooks/Store.hook";
-import { RootState } from "../../store/app/store";
-import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.service";
+import {
+  useGetIpInfoQuery,
+  useGetIpInfoStateResult,
+} from "../../store/features/IpInfo/IpInfo.slice";
 import { toLocationString } from "../../utils/Location.util";
+import { IpInfoError } from "../../types/IpInfo";
+
 import {
   IpLocationInfoAttributesDivider,
   IpLocationInfoItem,
@@ -18,49 +23,31 @@ import {
   IpLocationInfoStyle,
   IpLocationInfoErrMsg,
 } from "./IpLocationInfo.style";
-import BeatLoader from "react-spinners/BeatLoader";
-import { IpName } from "../../store/features/Ip/Ip.slice";
-import { IIpInfoError } from "../../types/IpInfo.d";
 
 const IpLocationInfo = () => {
   const [ipInfoErrorMsg, setIpInfoErrorMsg] = useState<string>();
-  const { ipFetch, ip } = useAppSelector((state: RootState) => state[IpName]);
-  const {
-    data: IpInfoData,
-    isLoading,
-    isError,
-    error,
-  } = useGetIpInfoQuery(ip, {
-    skip: !ipFetch,
-  });
+  const { data: ipInfo, isLoading, isError, error } = useGetIpInfoStateResult;
 
   useEffect(() => {
-    const errorMsg = error as IIpInfoError;
+    const errorMsg = error as IpInfoError;
 
-    isError &&
-      setIpInfoErrorMsg(errorMsg.data.message || errorMsg.data.Message);
+    isError && setIpInfoErrorMsg(errorMsg.message);
   }, [isError]);
 
-  const {
-    ip: ipAddress,
-    org: ispName,
-    city,
-    zipCode: postal,
-    gmt,
-  } = IpInfoData || {};
+  const { query: ip, isp, city, zip, timezone } = ipInfo || {};
 
   const ipAddressBlock = useMemo(
     () => (
       <IpLocationInfoItem>
         <IpLocationInfoItemTitle>{IP_ADDRESS}</IpLocationInfoItemTitle>
-        {(ipAddress || isLoading) && (
+        {(ip || isLoading) && (
           <IpLocationInfoItemContent>
-            {!isLoading ? ipAddress : <BeatLoader />}
+            {!isLoading ? ip : <BeatLoader />}
           </IpLocationInfoItemContent>
         )}
       </IpLocationInfoItem>
     ),
-    [isLoading, ipAddress]
+    [isLoading, ip]
   );
 
   const ipLocation = useMemo(
@@ -68,14 +55,14 @@ const IpLocationInfo = () => {
       <IpLocationInfoItem>
         <IpLocationInfoAttributesDivider />
         <IpLocationInfoItemTitle>{LOCATION}</IpLocationInfoItemTitle>
-        {(ipAddress || isLoading) && (
+        {(ip || isLoading) && (
           <IpLocationInfoItemContent>
-            {!isLoading ? toLocationString(city, postal) : <BeatLoader />}
+            {!isLoading ? toLocationString(city, zip) : <BeatLoader />}
           </IpLocationInfoItemContent>
         )}
       </IpLocationInfoItem>
     ),
-    [isLoading, city, postal]
+    [isLoading, city, zip]
   );
 
   const ipLocationTime = useMemo(
@@ -83,14 +70,14 @@ const IpLocationInfo = () => {
       <IpLocationInfoItem>
         <IpLocationInfoAttributesDivider />
         <IpLocationInfoItemTitle>{TIMEZONE}</IpLocationInfoItemTitle>
-        {(ipAddress || isLoading) && (
+        {(ip || isLoading) && (
           <IpLocationInfoItemContent>
-            {!isLoading ? gmt : <BeatLoader />}
+            {!isLoading ? timezone : <BeatLoader />}
           </IpLocationInfoItemContent>
         )}
       </IpLocationInfoItem>
     ),
-    [isLoading, gmt]
+    [isLoading, timezone]
   );
 
   const ipIspName = useMemo(
@@ -98,14 +85,14 @@ const IpLocationInfo = () => {
       <IpLocationInfoItem>
         <IpLocationInfoAttributesDivider />
         <IpLocationInfoItemTitle>{ISP}</IpLocationInfoItemTitle>
-        {(ipAddress || isLoading) && (
+        {(ip || isLoading) && (
           <IpLocationInfoItemContent>
-            {!isLoading ? ispName : <BeatLoader />}
+            {!isLoading ? isp : <BeatLoader />}
           </IpLocationInfoItemContent>
         )}
       </IpLocationInfoItem>
     ),
-    [isLoading, ispName]
+    [isLoading, isp]
   );
 
   const ipInfoErrorMsgElement = useMemo(
@@ -117,9 +104,11 @@ const IpLocationInfo = () => {
     [isError, ipInfoErrorMsg]
   );
 
-  return isError ? (
-    <IpLocationInfoErrMsg>{ipInfoErrorMsgElement}</IpLocationInfoErrMsg>
-  ) : (
+  if (isError) {
+    return <IpLocationInfoErrMsg>{ipInfoErrorMsgElement}</IpLocationInfoErrMsg>;
+  }
+
+  return (
     <IpLocationInfoStyle>
       {ipAddressBlock}
       {ipLocation}

@@ -1,35 +1,47 @@
-import { bindActionCreators } from "@reduxjs/toolkit";
-import React, { ChangeEvent } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
+import { IoIosArrowForward } from "react-icons/io";
+
 import { IP_INPUT_PLACEHOLDER } from "../../constants/IpInput.const";
-import IpSearchBtn from "../IpSearchBtn";
+import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.slice";
+
 import {
+  IpSearchBtnStyle,
   IpSearchInputStyle,
-  IpSearchInputStyleContainer,
+  IpSearchInputStyleForm,
 } from "./IpSearchInput.style";
-import { useAppDispatch, useAppSelector } from "../../hooks/Store.hook";
-import { RootState } from "../../store/app/store";
-import { IpActions } from "../../store/features/Ip/Ip.slice";
-import { IpName } from "../../store/features/Ip/Ip.slice";
 
 const IpSearchInput = () => {
-  const { ip } = useAppSelector((state: RootState) => state[IpName]);
+  const [ip, setIp] = useState<string>("");
 
-  const appDispatch = useAppDispatch();
-  const { setIp } = bindActionCreators(IpActions, appDispatch);
+  const { refetch } = useGetIpInfoQuery(ip, {
+    skip: true,
+  });
 
-  const onIpInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setIp(e.target.value);
+  const onIpInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    setIp(event.target.value);
+  };
+
+  const onIpSearchBtnClick = (event: MouseEvent<HTMLButtonElement>): void => {
+    event.preventDefault();
+
+    refetch();
   };
 
   return (
-    <IpSearchInputStyleContainer>
+    <IpSearchInputStyleForm>
       <IpSearchInputStyle
         onChange={onIpInputChange}
         placeholder={IP_INPUT_PLACEHOLDER}
         value={ip}
       />
-      <IpSearchBtn />
-    </IpSearchInputStyleContainer>
+      <IpSearchBtnStyle
+        type="submit"
+        aria-label="Search ip"
+        onClick={onIpSearchBtnClick}
+      >
+        <IoIosArrowForward />
+      </IpSearchBtnStyle>
+    </IpSearchInputStyleForm>
   );
 };
 

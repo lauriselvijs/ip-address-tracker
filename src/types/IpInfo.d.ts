@@ -1,14 +1,28 @@
-export interface IIpInfo {
-  ip: string;
-  org: string;
+export interface IpInfo {
+  query: string;
+  status: string;
+  country: string;
+  countryCode: string;
+  region: string;
+  regionName: string;
   city: string;
-  zipCode: string;
-  latitude: number | null;
-  longitude: number | null;
-  gmt: string;
+  zip: string;
+  lat: number;
+  lon: number;
+  timezone: string;
+  isp: string;
+  org: string;
+  as: string;
 }
 
-interface IIpInfoError {
-  status: number;
-  data: { [key: string]: string };
+enum IpInfoErrorMsg {
+  PRIVATE_RANGE = "private range",
+  RESERVED_RANGE = "reserved range",
+  INVALID_QUERY = "invalid query",
+}
+
+interface IpInfoError {
+  status: string;
+  message: IpInfoErrorMsg;
+  query: string;
 }
