@@ -23,5 +23,5 @@ export const IpInfoApi = createApi({
 export const { useLazyGetIpInfoQuery } = IpInfoApi;
 
 export const IpInfoApiReducer = IpInfoApi.reducer;
-export const IpInfoApiReducerPath = IpInfoApi.reducerPath;
+export const IpInfoApiName = IpInfoApi.reducerPath;
 export const IpInfoApiMiddleware = IpInfoApi.middleware;

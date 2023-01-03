@@ -1,14 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
+import { IpName, IpReducer } from "../features/Ip";
 
-import {
-  IpInfoApiReducer,
-  IpInfoApiReducerPath,
-} from "../features/IpInfo/IpInfo.slice";
-import { ThemeName, ThemeReducer } from "../features/Theme/Theme.slice";
+import { IpInfoApiReducer, IpInfoApiName } from "../features/IpInfo";
+import { ThemeName, ThemeReducer } from "../features/Theme";
 
 const reducers = {
   [ThemeName]: ThemeReducer,
-  [IpInfoApiReducerPath]: IpInfoApiReducer,
+  [IpInfoApiName]: IpInfoApiReducer,
+  [IpName]: IpReducer,
 };
 
 export const rootReducer = combineReducers(reducers);

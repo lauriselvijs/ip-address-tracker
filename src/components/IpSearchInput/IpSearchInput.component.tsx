@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { IP_INPUT_PLACEHOLDER } from "../../constants/IpInput.const";
-import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.slice";
+import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo";
 
 import {
   IpSearchBtnStyle,

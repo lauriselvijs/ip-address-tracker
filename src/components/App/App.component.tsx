@@ -9,7 +9,7 @@ import IpSearchInput from "../IpSearchInput";
 import IpLocationMap from "../IpLocationMap";
 import IpLocationInfo from "../IpLocationInfo";
 import DarkModeBtn from "../DarkModeBtn";
-import { ThemeName } from "../../store/features/Theme/Theme.slice";
+import { ThemeName } from "../../store/features/Theme";
 import { RootState } from "../../store/app/store";
 import { useAppSelector } from "../../hooks/Store.hook";
 

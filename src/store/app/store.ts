@@ -11,11 +11,9 @@ import {
   persistStore,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { IpName } from "../features/Ip";
 
-import {
-  IpInfoApiMiddleware,
-  IpInfoApiReducerPath,
-} from "../features/IpInfo/IpInfo.slice";
+import { IpInfoApiMiddleware, IpInfoApiName } from "../features/IpInfo";
 
 import rootReducer from "./reducer";
 
@@ -23,7 +21,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: [IpInfoApiReducerPath],
+  blacklist: [IpInfoApiName, IpName],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

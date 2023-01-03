@@ -2,7 +2,7 @@ import { ActionCreatorWithPayload, bindActionCreators } from "@reduxjs/toolkit";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { DefaultTheme } from "styled-components";
 import { RootState } from "../store/app/store";
-import { ThemeActions, ThemeName } from "../store/features/Theme/Theme.slice";
+import { ThemeActions, ThemeName } from "../store/features/Theme";
 import { useAppDispatch, useAppSelector } from "./Store.hook";
 
 export const useSetTheme = (

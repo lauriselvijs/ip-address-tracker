@@ -6,7 +6,7 @@ import {
   LOCATION,
   TIMEZONE,
 } from "../../constants/IpInfo.const";
-import { IpInfoApi } from "../../store/features/IpInfo/IpInfo.slice";
+import { IpInfoApi } from "../../store/features/IpInfo";
 import { IpInfoError, IpInfoErrorMsg } from "../../types/IpInfo";
 
 import {
