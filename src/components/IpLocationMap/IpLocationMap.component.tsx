@@ -2,11 +2,10 @@ import Map, { Marker } from "react-map-gl";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 import { MAP_STYLE, MAP_ZOOM_LEVEL } from "../../constants/IpLocationMap.const";
-import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.slice";
 
 const IpLocationMap = () => {
-  const { data: ipInfoData, isFetching, isLoading } = useGetIpInfoQuery("");
-  const { lon, lat } = ipInfoData || {};
+  // const { data: ipInfoData, isFetching, isLoading } = useGetIpInfoQuery("");
+  // const { lon, lat } = ipInfoData || {};
 
   return (
     <main>

@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { IP_INPUT_PLACEHOLDER } from "../../constants/IpInput.const";
-import { useGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.slice";
+import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo/IpInfo.slice";
 
 import {
   IpSearchBtnStyle,
@@ -13,9 +13,7 @@ import {
 const IpSearchInput = () => {
   const [ip, setIp] = useState<string>("");
 
-  const { refetch } = useGetIpInfoQuery(ip, {
-    skip: true,
-  });
+  const [trigger] = useLazyGetIpInfoQuery();
 
   const onIpInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setIp(event.target.value);
@@ -24,7 +22,7 @@ const IpSearchInput = () => {
   const onIpSearchBtnClick = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
 
-    refetch();
+    trigger(ip, true);
   };
 
   return (

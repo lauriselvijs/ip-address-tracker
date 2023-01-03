@@ -1,12 +1,13 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+import { IpInfo, IpInfoError } from "../../../types/IpInfo";
+
 import {
-  createApi,
-  fetchBaseQuery,
-  skipToken,
-} from "@reduxjs/toolkit/query/react";
-
-import { IpInfo } from "../../../types/IpInfo";
-
-import { IP_API_BASE_URL, IP_INFO_API_REDUCER_PATH } from "./IpInfo.config";
+  IP_API_BASE_URL,
+  IP_API_GET_IP_INFO,
+  IP_INFO_API_REDUCER_PATH,
+  SUCCESS,
+} from "./IpInfo.config";
 
 export const IpInfoApi = createApi({
   reducerPath: IP_INFO_API_REDUCER_PATH,
@@ -15,15 +16,16 @@ export const IpInfoApi = createApi({
   }),
   endpoints: (builder) => ({
     getIpInfo: builder.query<IpInfo, string>({
-      query: (ip) => `json/${ip}`,
+      query: (ip) => ({
+        url: `${IP_API_GET_IP_INFO}${ip}`,
+        validateStatus: (response, result) =>
+          response.status === 200 && result.status === SUCCESS,
+      }),
     }),
   }),
 });
 
-export const useGetIpInfoStateResult =
-  IpInfoApi.endpoints.getIpInfo.useQueryState(skipToken);
-
-export const { useGetIpInfoQuery } = IpInfoApi;
+export const { useLazyGetIpInfoQuery } = IpInfoApi;
 
 export const IpInfoApiReducer = IpInfoApi.reducer;
 export const IpInfoApiReducerPath = IpInfoApi.reducerPath;

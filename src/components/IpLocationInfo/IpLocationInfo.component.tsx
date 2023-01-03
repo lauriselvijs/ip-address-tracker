@@ -1,18 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
-
 import {
   IP_ADDRESS,
   ISP,
   LOCATION,
   TIMEZONE,
 } from "../../constants/IpInfo.const";
-import {
-  useGetIpInfoQuery,
-  useGetIpInfoStateResult,
-} from "../../store/features/IpInfo/IpInfo.slice";
-import { toLocationString } from "../../utils/Location.util";
-import { IpInfoError } from "../../types/IpInfo";
+import { IpInfoApi } from "../../store/features/IpInfo/IpInfo.slice";
+import { IpInfoError, IpInfoErrorMsg } from "../../types/IpInfo";
 
 import {
   IpLocationInfoAttributesDivider,
@@ -25,13 +20,19 @@ import {
 } from "./IpLocationInfo.style";
 
 const IpLocationInfo = () => {
-  const [ipInfoErrorMsg, setIpInfoErrorMsg] = useState<string>();
-  const { data: ipInfo, isLoading, isError, error } = useGetIpInfoStateResult;
+  const [ipInfoErrorMsg, setIpInfoErrorMsg] = useState<IpInfoErrorMsg>();
+  const {
+    data: ipInfo,
+    isLoading,
+    isFetching,
+    isError,
+    error,
+  } = IpInfoApi.endpoints.getIpInfo.useQueryState("");
 
   useEffect(() => {
-    const errorMsg = error as IpInfoError;
+    const { message: errorMsg } = (error as IpInfoError) || {};
 
-    isError && setIpInfoErrorMsg(errorMsg.message);
+    isError && setIpInfoErrorMsg(errorMsg);
   }, [isError]);
 
   const { query: ip, isp, city, zip, timezone } = ipInfo || {};
@@ -57,7 +58,13 @@ const IpLocationInfo = () => {
         <IpLocationInfoItemTitle>{LOCATION}</IpLocationInfoItemTitle>
         {(ip || isLoading) && (
           <IpLocationInfoItemContent>
-            {!isLoading ? toLocationString(city, zip) : <BeatLoader />}
+            {!isLoading ? (
+              <>
+                {city}, {zip}
+              </>
+            ) : (
+              <BeatLoader />
+            )}
           </IpLocationInfoItemContent>
         )}
       </IpLocationInfoItem>
