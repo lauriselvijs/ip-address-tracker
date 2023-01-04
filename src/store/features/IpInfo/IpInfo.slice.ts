@@ -2,7 +2,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { IpInfo } from "../../../types/IpInfo";
 
-import { BASE_URL, GET_IP_INFO, REDUCER_PATH, SUCCESS } from "./IpInfo.config";
+import { TransformResult } from "./IpInfo";
+import {
+  BASE_URL,
+  GET_IP_INFO,
+  REDUCER_PATH,
+  SUCCESS,
+  TITLES,
+} from "./IpInfo.config";
 
 export const IpInfoApi = createApi({
   reducerPath: REDUCER_PATH,
@@ -10,12 +17,27 @@ export const IpInfoApi = createApi({
     baseUrl: BASE_URL,
   }),
   endpoints: (builder) => ({
-    getIpInfo: builder.query<IpInfo, string>({
+    getIpInfo: builder.query<TransformResult[], string>({
       query: (ip) => ({
         url: `${GET_IP_INFO}${ip}`,
         validateStatus: (response, result) =>
           response.status === 200 && result.status === SUCCESS,
       }),
+      transformResponse: ({ query: ip, isp, city, zip, timezone }: IpInfo) =>
+        Object.entries({
+          ip,
+          isp,
+          city,
+          zip,
+          timezone,
+        }).map(([key, value], index) => {
+          return {
+            [key]: {
+              title: TITLES[index],
+              value,
+            },
+          };
+        }),
     }),
   }),
 });

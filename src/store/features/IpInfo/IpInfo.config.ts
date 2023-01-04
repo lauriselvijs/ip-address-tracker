@@ -4,3 +4,5 @@ export const BASE_URL = "http://ip-api.com/";
 export const GET_IP_INFO = "json/";
 
 export const SUCCESS = "success";
+
+export const TITLES = ["Ip Address", "Location", "Timezone", "Isp"];
