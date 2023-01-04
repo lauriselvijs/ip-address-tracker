@@ -15,23 +15,23 @@ const IpInfo = () => {
   const { isFetching, isError, data } = useGetIpInfoQueryState();
   const ipInfoErrorMsg = useGetErrorMsg();
 
-  data?.forEach((value) => {
-    console.log(value.ip);
-  });
+  const renderIpInfoItems = useMemo(
+    () =>
+      data?.map(({ title, value, key }) => (
+        <IpInfoItem key={key}>
+          <IpInfoAttributesDivider />
+          <IpInfoItemTitle>{title}</IpInfoItemTitle>
+          <IpInfoItemContent>
+            {!isFetching ? value : <BeatLoader />}
+          </IpInfoItemContent>
+        </IpInfoItem>
+      )),
+    [isFetching, data]
+  );
 
-  // const renderIpInfoTest = useMemo(() => {
-  //   return Object.values({ ip, isp, city, zip, timezone }).map(
-  //     (ipInfo, index) => (
-  //       <IpInfoItem key={index}>
-  //         <IpInfoAttributesDivider />
-  //         <IpInfoItemTitle>{IP_ADDRESS}</IpInfoItemTitle>
-  //         <IpInfoItemContent>
-  //           {!isFetching ? ipInfo : <BeatLoader />}
-  //         </IpInfoItemContent>
-  //       </IpInfoItem>
-  //     )
-  //   );
-  // }, [isFetching, ip, isp, city, zip, timezone]);
+  if (data) {
+    return <IpInfoStyle>{renderIpInfoItems}</IpInfoStyle>;
+  }
 
   if (isError) {
     return (
@@ -41,8 +41,7 @@ const IpInfo = () => {
     );
   }
 
-  // return <IpInfoStyle>{renderIpInfo}</IpInfoStyle>;
-  return <div>Test</div>;
+  return null;
 };
 
 export default IpInfo;
