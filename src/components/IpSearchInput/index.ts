@@ -1,3 +1,1 @@
-import IpSearchInput from "./IpSearchInput.component";
-
-export default IpSearchInput;
+export { default } from "./IpSearchInput.component";

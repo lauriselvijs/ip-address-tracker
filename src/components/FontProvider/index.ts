@@ -1,3 +1,1 @@
-import FontProvider from "./FontProvider.component";
-
-export default FontProvider;
+export { default } from "./FontProvider.component";

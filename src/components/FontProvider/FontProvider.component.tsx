@@ -1,12 +1,12 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { fontWeightObjToString } from "../../utils/Font.util";
-import { IFontProvider } from "../../types/FontProvider";
+import { FontProviderProps } from "./FontProvider";
 
 const FontProvider = ({
   fontFamilyName,
   fontWeight,
   children,
-}: IFontProvider) => {
+}: FontProviderProps) => {
   return (
     <HelmetProvider>
       <Helmet>

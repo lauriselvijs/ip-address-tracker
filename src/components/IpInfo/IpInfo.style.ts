@@ -1,36 +1,32 @@
 import styled from "styled-components/macro";
-import { IpLocationBaseStyle } from "../../style/shared/IpLocation.style";
+import { IpInfoBaseStyle } from "../../style/shared/IpLocation.style";
 
-export const IpLocationInfoStyle = styled(IpLocationBaseStyle)`
+export const IpInfoStyle = styled(IpInfoBaseStyle)`
   max-width: 80vw;
 `;
 
-export const IpLocationInfoErrMsg = styled(IpLocationBaseStyle)`
+export const IpInfoErrMsg = styled(IpInfoBaseStyle)`
   height: fit-content;
-
   padding: 20px;
 `;
 
-export const IpLocationInfoItem = styled.div`
-  padding: 20px;
-  padding-top: 10px;
+export const IpInfoItem = styled.div`
   padding-right: 40px;
-  width: 245px;
+  padding-top: 10px;
+  padding: 20px;
   position: relative;
   transition: width 0.5s linear;
+  width: 245px;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
-    transition: width 0.5s linear;
-
-    width: 320px;
     padding: 0px;
     text-align: center;
+    transition: width 0.5s linear;
+    width: 320px;
   }
 `;
 
-export const IpLocationInfoItemError = styled.div``;
-
-export const IpLocationInfoAttributesDivider = styled.div`
+export const IpInfoAttributesDivider = styled.div`
   position: absolute;
   top: 35px;
   left: -5px;
@@ -43,17 +39,16 @@ export const IpLocationInfoAttributesDivider = styled.div`
   }
 `;
 
-export const IpLocationInfoItemTitle = styled.h2`
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
+export const IpInfoItemTitle = styled.h2`
   color: ${({ theme }) => theme.colors.baseColor};
+  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
   letter-spacing: 1px;
 `;
 
-export const IpLocationInfoItemContent = styled.h3`
+export const IpInfoItemContent = styled.h3`
+  color: ${({ theme }) => theme.colors.baseColorDark};
   font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
   font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightMedium};
-  color: ${({ theme }) => theme.colors.baseColorDark};
-
   margin-top: 0px;
   padding-top: 2px;
 

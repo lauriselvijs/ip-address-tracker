@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 
-export const IpLocationBaseStyle = styled.div`
+export const IpInfoBaseStyle = styled.div`
   z-index: 1;
 
   height: 150px;

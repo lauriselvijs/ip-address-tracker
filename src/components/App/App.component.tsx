@@ -1,4 +1,3 @@
-import React from "react";
 import { ThemeProvider } from "styled-components";
 import Footer from "../Footer";
 import { GlobalStyle } from "../../style/base/Global.style";
@@ -7,7 +6,7 @@ import HeaderContainer from "../HeaderContainer";
 import Title from "../Title";
 import IpSearchInput from "../IpSearchInput";
 import IpLocationMap from "../IpLocationMap";
-import IpLocationInfo from "../IpLocationInfo";
+import IpInfo from "../IpInfo";
 import DarkModeBtn from "../DarkModeBtn";
 import { ThemeName } from "../../store/features/Theme";
 import { RootState } from "../../store/app/store";
@@ -28,7 +27,7 @@ const App = () => {
           <Title />
           <DarkModeBtn />
           <IpSearchInput />
-          <IpLocationInfo />
+          <IpInfo />
         </HeaderContainer>
         <IpLocationMap />
         <Footer />

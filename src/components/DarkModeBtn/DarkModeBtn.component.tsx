@@ -1,4 +1,3 @@
-import React from "react";
 import { DarkModeBtnStyle } from "./DarkModeBtn.style";
 import { BiSun, BiMoon } from "react-icons/bi";
 import DarkTheme from "../../style/theme/DarkTheme";

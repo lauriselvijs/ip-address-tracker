@@ -1,3 +1,1 @@
-import IpLocationMap from "./IpLocationMap.component";
-
-export default IpLocationMap;
+export { default } from "./IpLocationMap.component";

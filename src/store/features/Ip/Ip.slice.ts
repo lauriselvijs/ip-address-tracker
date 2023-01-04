@@ -7,7 +7,9 @@ export const Ip = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {
-    ipReceived: (state, action: PayloadAction<IIp>) => {},
+    ipReceived: (state, action: PayloadAction<IIp>) => {
+      state.ip = action.payload.ip;
+    },
   },
 });
 

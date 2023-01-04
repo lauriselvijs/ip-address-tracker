@@ -22,7 +22,6 @@ enum IpInfoErrorMsg {
 }
 
 interface IpInfoError {
-  status: string;
-  message: IpInfoErrorMsg;
-  query: string;
+  data: { status: string; message: IpInfoErrorMsg; query: string };
+  status: number;
 }

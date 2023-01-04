@@ -1,4 +1,3 @@
-import React from "react";
 import { IP_SEARCH_TITLE } from "../../constants/Title.const";
 import { TitleStyle } from "./Title.style";
 
