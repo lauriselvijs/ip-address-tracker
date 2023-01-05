@@ -15,7 +15,7 @@ import {
 
 const IpSearchInput = () => {
   const [ip, setIp] = useState<string>("");
-  const [trigger] = useLazyGetIpInfoQuery();
+  const [trigger, { isFetching }] = useLazyGetIpInfoQuery();
   const dispatch = useAppDispatch();
   const { ipReceived } = bindActionCreators(IpActions, dispatch);
 
@@ -25,8 +25,9 @@ const IpSearchInput = () => {
 
   const onIpSearchBtnClick = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-    // ipReceived({ ip });
-    // trigger(ip, true);
+
+    ipReceived({ ip });
+    trigger(ip, true);
   };
 
   return (
@@ -37,6 +38,7 @@ const IpSearchInput = () => {
         value={ip}
       />
       <IpSearchBtnStyle
+        disabled={isFetching}
         type="submit"
         aria-label="Search ip"
         onClick={onIpSearchBtnClick}

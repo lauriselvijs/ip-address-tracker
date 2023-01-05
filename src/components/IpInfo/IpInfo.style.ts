@@ -15,6 +15,7 @@ export const IpInfoStyle = styled.div`
     justify-content: space-between;
     margin-bottom: -55vh;
     padding-bottom: 40px;
+    min-width: 38vw;
   }
 `;
 

@@ -9,6 +9,7 @@ export const HeaderContainerStyle = styled.header`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  min-height: 250px;
   padding-top: 20px;
   position: relative;
 `;

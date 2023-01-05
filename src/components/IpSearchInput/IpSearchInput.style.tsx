@@ -2,8 +2,8 @@ import styled from "styled-components/macro";
 
 export const IpSearchInputStyle = styled.input`
   background-color: ${({ theme }) => theme.color.secondary};
-  border: none;
   border-radius: 10px 0 0 10px;
+  border: none;
   color: ${({ theme }) => theme.color.primary};
   cursor: pointer;
   font-size: ${({ theme }) => theme.font.size.small};
@@ -42,17 +42,23 @@ export const IpSearchBtnStyle = styled.button`
   justify-content: center;
   padding: 0px 15px;
 
-  &:hover {
-    svg {
-      fill: ${({ theme }) => theme.color.primary};
-    }
+  &:disabled {
+    opacity: 0.1;
   }
 
-  &:active {
-    background-color: ${({ theme }) => theme.color.secondaryLight};
+  &:not(:disabled) {
+    &:hover {
+      svg {
+        fill: ${({ theme }) => theme.color.primary};
+      }
+    }
 
-    svg {
-      fill: ${({ theme }) => theme.color.secondary};
+    &:active {
+      background-color: ${({ theme }) => theme.color.secondaryLight};
+
+      svg {
+        fill: ${({ theme }) => theme.color.secondary};
+      }
     }
   }
 `;
