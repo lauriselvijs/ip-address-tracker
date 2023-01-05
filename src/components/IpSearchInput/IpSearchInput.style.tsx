@@ -1,28 +1,21 @@
 import styled from "styled-components/macro";
 
 export const IpSearchInputStyle = styled.input`
-  width: 500px;
-  height: 30px;
-
-  transition: width 0.5s linear;
-
+  background-color: ${({ theme }) => theme.color.secondary};
   border-radius: 10px;
-  padding: 10px 20px;
-
   border: none;
-
+  color: ${({ theme }) => theme.color.primary};
   cursor: pointer;
-
-  color: ${({ theme }) => theme.colors.baseColorDark};
-
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
-
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
-  font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightBold};
+  font-size: ${({ theme }) => theme.font.size.small};
+  font-weight: ${({ theme }) => theme.font.weight.bold};
+  height: 30px;
+  padding: 10px 20px;
+  transition: width 0.5s linear;
+  width: 500px;
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.baseColor};
-    font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightLight};
+    color: ${({ theme }) => theme.color.primary};
+    font-weight: ${({ theme }) => theme.font.weight.light};
     opacity: 0.8;
   }
 
@@ -42,10 +35,10 @@ export const IpSearchBtnStyle = styled.button`
   width: 50px;
   height: 50px;
   border-radius: 0px 8px 8px 0px;
-  background-color: ${({ theme }) => theme.colors.baseColorDark};
-  color: ${({ theme }) => theme.colors.secondaryColor};
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
-  font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightBold};
+  background-color: ${({ theme }) => theme.color.primaryDark};
+  color: ${({ theme }) => theme.color.secondary};
+  font-size: ${({ theme }) => theme.font.size.medium};
+  font-weight: ${({ theme }) => theme.font.weight.bold};
   top: 0px;
   left: 490px;
 
@@ -57,7 +50,7 @@ export const IpSearchBtnStyle = styled.button`
     transform: scale(0.9);
   }
 
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.color.secondary};
 
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
     transition: left 0.5s linear;

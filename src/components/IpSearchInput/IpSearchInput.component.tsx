@@ -3,7 +3,7 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { IP_INPUT_PLACEHOLDER } from "../../constants/IpInput.const";
-import { useAppDispatch } from "../../hooks/Store.hook";
+import { useAppDispatch } from "../../hooks/Store";
 import { IpActions } from "../../store/features/Ip";
 import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo";
 

@@ -1,16 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DefaultTheme } from "styled-components";
-import { THEME_SLICE_NAME } from "./Theme.const";
+
+import { SLICE_NAME } from "./Theme.config";
 import initialState from "./Theme.initial-state";
 
 export const Theme = createSlice({
-  name: THEME_SLICE_NAME,
+  name: SLICE_NAME,
   initialState,
   reducers: {
-    setTheme: (state, action: PayloadAction<DefaultTheme>) => {
-      if (state.themeId !== action.payload.themeId) {
-        Object.assign(state, action.payload);
-      }
+    themeUpdated: (state, { payload: themeName }: PayloadAction<string>) => {
+      state.themeName = themeName;
     },
   },
 });

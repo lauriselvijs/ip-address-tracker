@@ -1,18 +1,8 @@
-import styled, { css } from "styled-components/macro";
-import BackgroundHeaderImage from "../../asset/images/pattern-bg.png";
-import BackgroundHeaderImageDarkMode from "../../asset/images/pattern-bg-dark-mode.png";
-import DarkTheme from "../../style/theme/DarkTheme";
+import styled from "styled-components/macro";
+// import BackgroundHeaderImage from "../../asset/images/pattern-bg.png";
+// import BackgroundHeaderImageDarkMode from "../../asset/images/pattern-bg-dark-mode.png";
 
 export const HeaderContainerStyle = styled.header`
-  ${({ theme }) =>
-    theme.themeId === DarkTheme.themeId
-      ? css`
-          background-image: url(${BackgroundHeaderImageDarkMode});
-        `
-      : css`
-          background-image: url(${BackgroundHeaderImage});
-        `}
-
   background-repeat: no-repeat;
   background-size: cover;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const FooterStyle = styled.footer`
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
+  font-size: ${({ theme }) => theme.font.size.small};
   text-align: center;
 
   z-index: 1;
@@ -13,10 +13,10 @@ export const FooterStyle = styled.footer`
 
   padding-bottom: 0;
 
-  color: ${({ theme }) => theme.colors.secondaryColorDark};
+  color: ${({ theme }) => theme.color.secondaryDark};
 
   a {
-    color: ${({ theme }) => theme.colors.secondaryColorLight};
+    color: ${({ theme }) => theme.color.secondaryLight};
   }
 
   @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {

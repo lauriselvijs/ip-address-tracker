@@ -30,7 +30,7 @@ export const IpInfoAttributesDivider = styled.div`
   position: absolute;
   top: 35px;
   left: -5px;
-  border-left: 1px solid ${({ theme }) => theme.colors.baseColor};
+  border-left: 1px solid ${({ theme }) => theme.color.primary};
   height: 68px;
   opacity: 0.2;
 
@@ -40,15 +40,15 @@ export const IpInfoAttributesDivider = styled.div`
 `;
 
 export const IpInfoItemTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.baseColor};
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeSmall};
+  color: ${({ theme }) => theme.color.primary};
+  font-size: ${({ theme }) => theme.font.size.small};
   letter-spacing: 1px;
 `;
 
 export const IpInfoItemContent = styled.h3`
-  color: ${({ theme }) => theme.colors.baseColorDark};
-  font-size: ${({ theme }) => theme.typography.fontSize.fontSizeMedium};
-  font-weight: ${({ theme }) => theme.font.fontWeight.fontWeightMedium};
+  color: ${({ theme }) => theme.color.primary};
+  font-size: ${({ theme }) => theme.font.size.medium};
+  font-weight: ${({ theme }) => theme.font.weight.medium};
   margin-top: 0px;
   padding-top: 2px;
 

@@ -1,40 +1,7 @@
-import { DefaultTheme } from "styled-components";
+import { Theme } from "./Theme.initial-state.d";
 
-const initialState: DefaultTheme = {
-  themeId: "",
-  font: {
-    fontFamilyName: "",
-    fontFamily: "",
-    fontWeight: {
-      fontWeightLight: "",
-      fontWeightMedium: "",
-      fontWeightBold: "",
-    },
-  },
-  typography: {
-    fontSize: {
-      fontSizeLarge: "",
-      fontSizeMedium: "",
-      fontSizeSmall: "",
-    },
-  },
-  colors: {
-    baseColor: "",
-    baseColorDark: "",
-    secondaryColor: "",
-    secondaryColorLight: "",
-    secondaryColorDark: "",
-    white: "",
-    black: "",
-  },
-  media: {
-    mobile: {
-      maxWidth: "",
-    },
-    tablet: {
-      maxWidth: "",
-    },
-  },
+const initialState: Theme = {
+  themeName: "",
 };
 
 export default initialState;

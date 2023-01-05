@@ -8,7 +8,7 @@ export const IpInfoBaseStyle = styled.div`
   padding: 10px;
   margin-bottom: -120px;
 
-  box-shadow: 2px 2px 10px 2px ${({ theme }) => theme.colors.baseColor};
+  box-shadow: 2px 2px 10px 2px ${({ theme }) => theme.color.primary};
 
   display: flex;
   align-items: flex-start;
@@ -16,7 +16,7 @@ export const IpInfoBaseStyle = styled.div`
 
   transition: height, margin-bottom 0.5s linear;
 
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
+  background-color: ${({ theme }) => theme.color.secondary};
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     flex-direction: column;
