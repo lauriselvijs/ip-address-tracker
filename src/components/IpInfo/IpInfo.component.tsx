@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
 
-import { useGetErrorMsg, useGetIpInfoQueryState } from "./IpInfo.hook";
+import { useGetErrorInfo, useGetIpInfoQueryState } from "./IpInfo.hook";
 import {
   IpInfoAttributesDivider,
   IpInfoItem,
@@ -12,8 +12,8 @@ import {
 } from "./IpInfo.style";
 
 const IpInfo = () => {
-  const { isFetching, isError, data } = useGetIpInfoQueryState();
-  const ipInfoErrorMsg = useGetErrorMsg();
+  const { isFetching, transformedData: data } = useGetIpInfoQueryState();
+  const [isError, ipInfoErrorMsg] = useGetErrorInfo();
 
   const renderIpInfoItems = useMemo(
     () =>
@@ -29,7 +29,7 @@ const IpInfo = () => {
     [isFetching, data]
   );
 
-  if (data) {
+  if (data.length !== 0) {
     return <IpInfoStyle>{renderIpInfoItems}</IpInfoStyle>;
   }
 
