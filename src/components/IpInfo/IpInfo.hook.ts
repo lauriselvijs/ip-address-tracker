@@ -44,7 +44,7 @@ export const useGetIpInfoQueryState = () => {
   return queryState;
 };
 
-export const useGetErrorInfo = (): (boolean | IpInfoErrorMsg | undefined)[] => {
+export const useGetErrorInfo = (): [boolean, IpInfoErrorMsg | undefined] => {
   const [ipInfoErrorMsg, setIpInfoErrorMsg] = useState<IpInfoErrorMsg>();
   const { ip: receivedIp } = useSelector((state: RootState) => state[IpName]);
   const { isError, error } =

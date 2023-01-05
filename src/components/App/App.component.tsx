@@ -20,8 +20,8 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <HeaderContainer>
-          <Title />
           <DarkModeBtn />
+          <Title />
           <IpSearchInput />
           <IpInfo />
         </HeaderContainer>

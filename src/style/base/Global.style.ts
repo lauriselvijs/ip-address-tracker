@@ -23,13 +23,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.color.secondary};
     padding: 0px;
     margin: 0px;
-    font-family: ${({ theme }) => theme.font.family};
 
-    @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
-      height: 135vh;
-    }
+    background-color: ${({ theme }) => theme.color.secondary};
+    font-family: ${({ theme }) => theme.font.family};
   }
 `;

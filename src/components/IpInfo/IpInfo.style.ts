@@ -1,38 +1,46 @@
 import styled from "styled-components/macro";
-import { IpInfoBaseStyle } from "../../style/shared/IpLocation.style";
 
-export const IpInfoStyle = styled(IpInfoBaseStyle)`
-  max-width: 80vw;
+export const IpInfoStyle = styled.div`
+  background-color: ${({ theme }) => theme.color.secondary};
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 2px ${({ theme }) => theme.color.primary};
+  display: flex;
+  margin: 0 20px -12vh 20px;
+  padding: 10px;
+  z-index: 1;
+
+  @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: -55vh;
+    padding-bottom: 40px;
+  }
 `;
 
-export const IpInfoErrMsg = styled(IpInfoBaseStyle)`
-  height: fit-content;
+export const IpInfoErrMsg = styled(IpInfoStyle)`
   padding: 20px;
 `;
 
 export const IpInfoItem = styled.div`
-  padding-right: 40px;
-  padding-top: 10px;
-  padding: 20px;
+  padding: 20px 80px 20px 20px;
   position: relative;
-  transition: width 0.5s linear;
-  width: 245px;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
-    padding: 0px;
+    padding: 10px 5vw;
     text-align: center;
-    transition: width 0.5s linear;
-    width: 320px;
   }
 `;
 
 export const IpInfoAttributesDivider = styled.div`
-  position: absolute;
-  top: 35px;
+  border-left: 2px solid ${({ theme }) => theme.color.primary};
+  bottom: 0;
+  height: 50%;
   left: -5px;
-  border-left: 1px solid ${({ theme }) => theme.color.primary};
-  height: 68px;
-  opacity: 0.2;
+  margin: auto;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     display: none;
@@ -43,16 +51,16 @@ export const IpInfoItemTitle = styled.h2`
   color: ${({ theme }) => theme.color.primary};
   font-size: ${({ theme }) => theme.font.size.small};
   letter-spacing: 1px;
+  text-transform: uppercase;
 `;
 
 export const IpInfoItemContent = styled.h3`
-  color: ${({ theme }) => theme.color.primary};
+  color: ${({ theme }) => theme.color.primaryDark};
   font-size: ${({ theme }) => theme.font.size.medium};
   font-weight: ${({ theme }) => theme.font.weight.medium};
-  margin-top: 0px;
-  padding-top: 2px;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
-    margin: 0px;
+    padding: 0;
+    margin: 0;
   }
 `;
