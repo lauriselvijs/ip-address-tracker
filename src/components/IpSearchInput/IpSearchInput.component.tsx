@@ -25,9 +25,8 @@ const IpSearchInput = () => {
 
   const onIpSearchBtnClick = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-
-    ipReceived({ ip });
-    trigger(ip, true);
+    // ipReceived({ ip });
+    // trigger(ip, true);
   };
 
   return (

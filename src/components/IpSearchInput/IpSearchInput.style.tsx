@@ -2,58 +2,57 @@ import styled from "styled-components/macro";
 
 export const IpSearchInputStyle = styled.input`
   background-color: ${({ theme }) => theme.color.secondary};
-  border-radius: 10px;
   border: none;
+  border-radius: 10px 0 0 10px;
   color: ${({ theme }) => theme.color.primary};
   cursor: pointer;
   font-size: ${({ theme }) => theme.font.size.small};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   height: 30px;
   padding: 10px 20px;
-  transition: width 0.5s linear;
-  width: 500px;
+  width: 30vw;
 
-  ::placeholder {
+  &::placeholder {
     color: ${({ theme }) => theme.color.primary};
     font-weight: ${({ theme }) => theme.font.weight.light};
     opacity: 0.8;
   }
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
-    transition: width 0.5s linear;
-    width: 300px;
+  &:focus {
+    cursor: text;
   }
 `;
 
 export const IpSearchInputStyleForm = styled.form`
-  position: relative;
+  align-items: stretch;
+  display: flex;
+  justify-content: center;
 `;
 
 export const IpSearchBtnStyle = styled.button`
-  position: absolute;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 0px 8px 8px 0px;
+  align-items: center;
   background-color: ${({ theme }) => theme.color.primaryDark};
+  border-radius: 0px 10px 10px 0px;
+  border: none;
   color: ${({ theme }) => theme.color.secondary};
+  cursor: pointer;
+  display: flex;
   font-size: ${({ theme }) => theme.font.size.medium};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  top: 0px;
-  left: 490px;
+  justify-content: center;
+  padding: 0px 15px;
 
-  cursor: pointer;
-
-  transition: left 0.5s linear;
-
-  &:active {
-    transform: scale(0.9);
+  &:hover {
+    svg {
+      fill: ${({ theme }) => theme.color.primary};
+    }
   }
 
-  color: ${({ theme }) => theme.color.secondary};
+  &:active {
+    background-color: ${({ theme }) => theme.color.secondaryLight};
 
-  @media (max-width: ${({ theme }) => theme.media.mobile.maxWidth}) {
-    transition: left 0.5s linear;
-    left: 290px;
+    svg {
+      fill: ${({ theme }) => theme.color.secondary};
+    }
   }
 `;
