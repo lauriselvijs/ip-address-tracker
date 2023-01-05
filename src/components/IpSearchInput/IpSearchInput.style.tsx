@@ -43,21 +43,14 @@ export const IpSearchBtnStyle = styled.button`
   padding: 0px 15px;
 
   &:disabled {
-    opacity: 0.1;
+    cursor: not-allowed;
+    opacity: 0.25;
   }
 
   &:not(:disabled) {
     &:hover {
       svg {
         fill: ${({ theme }) => theme.color.primary};
-      }
-    }
-
-    &:active {
-      background-color: ${({ theme }) => theme.color.secondaryLight};
-
-      svg {
-        fill: ${({ theme }) => theme.color.secondary};
       }
     }
   }
