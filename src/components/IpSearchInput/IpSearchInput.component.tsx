@@ -15,7 +15,9 @@ import {
 
 const IpSearchInput = () => {
   const [ip, setIp] = useState<string>("");
-  const [trigger, { isFetching }] = useLazyGetIpInfoQuery();
+  const [trigger, { isFetching }] = useLazyGetIpInfoQuery({
+    refetchOnReconnect: true,
+  });
   const dispatch = useAppDispatch();
   const { ipReceived } = bindActionCreators(IpActions, dispatch);
 
@@ -27,7 +29,9 @@ const IpSearchInput = () => {
     event.preventDefault();
 
     ipReceived({ ip });
-    trigger(ip, true);
+    trigger(ip, true)
+      .unwrap()
+      .then(() => setIp(""));
   };
 
   return (

@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import BeatLoader from "react-spinners/BeatLoader";
-import { IpInfoApi } from "../../store/features/IpInfo";
+import { Shimmer } from "react-shimmer";
 
 import { isEmpty } from "../../utils/Array.util";
+import { SHIMMER_HEIGHT, SHIMMER_WIDTH } from "./IpInfo.config";
 import { useGetErrorInfo, useGetIpInfoQueryState } from "./IpInfo.hook";
 import {
   IpInfoAttributesDivider,
@@ -24,7 +24,11 @@ const IpInfo = () => {
           {index !== 0 && <IpInfoAttributesDivider />}
           <IpInfoItemTitle>{title}</IpInfoItemTitle>
           <IpInfoItemContent>
-            {!isFetching ? value : <BeatLoader />}
+            {!isFetching ? (
+              value
+            ) : (
+              <Shimmer width={SHIMMER_WIDTH} height={SHIMMER_HEIGHT} />
+            )}
           </IpInfoItemContent>
         </IpInfoItem>
       )),
