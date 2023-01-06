@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+//TODO
+// [] - only reload on initial page load
 export const useReconnectWhenOnline = () => {
   const whenOnline = () => {
     window.location.reload();

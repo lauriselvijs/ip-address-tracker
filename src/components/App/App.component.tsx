@@ -9,14 +9,13 @@ import IpLocationMap from "../IpLocationMap";
 import IpInfo from "../IpInfo";
 import DarkModeBtn from "../DarkModeBtn";
 import { ThemeProvider } from "styled-components";
-import { useReconnectWhenOnline } from "../../hooks/Network";
 
 const App = () => {
   const {
     font: { familyName, weight },
   } = theme;
 
-  useReconnectWhenOnline();
+  // useReconnectWhenOnline();
 
   return (
     <FontProvider fontFamilyName={familyName} fontWeight={weight}>

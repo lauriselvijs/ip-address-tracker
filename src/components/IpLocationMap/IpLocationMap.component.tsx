@@ -1,31 +1,44 @@
 import Map, { Marker } from "react-map-gl";
+import { Shimmer } from "react-shimmer";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-import { MAP_STYLE, MAP_ZOOM_LEVEL } from "../../constants/IpLocationMap.const";
+import { MARKER_STYLE, STYLE, ZOOM_LEVEL } from "./IpLocationMap.config";
+import { useGetIpInfoCoordinatesQueryState } from "./IpLocationMap.hook";
+import { MapStyle, ShimmerStyle } from "./IpLocationMap.style";
 
 const IpLocationMap = () => {
-  // const { data: ipInfoData, isFetching, isLoading } = useGetIpInfoQuery("");
-  // const { lon, lat } = ipInfoData || {};
+  const { lat, lon, isFetching, isIpInfoStateError } =
+    useGetIpInfoCoordinatesQueryState();
 
-  return (
-    <main>
-      Map
-      {/* <Map
-        initialViewState={{
-          longitude: 0,
-          latitude: 0,
-          zoom: MAP_ZOOM_LEVEL,
-        }}
-        style={{ outline: "none", height: "100vh" }}
-        mapStyle={MAP_STYLE}
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
-      >
-        <Marker longitude={0} latitude={0}>
-          <FaMapMarkerAlt style={{ fontSize: "62px" }} />
-        </Marker>
-      </Map> */}
-    </main>
-  );
+  //24.48.0.1
+
+  if (lon && lat && !isFetching) {
+    return (
+      <MapStyle>
+        <Map
+          longitude={lon}
+          latitude={lat}
+          zoom={ZOOM_LEVEL}
+          mapStyle={STYLE}
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_KEY}
+        >
+          <Marker longitude={lon} latitude={lat}>
+            <FaMapMarkerAlt style={MARKER_STYLE} />
+          </Marker>
+        </Map>
+      </MapStyle>
+    );
+  }
+
+  if (isFetching) {
+    return <ShimmerStyle />;
+  }
+
+  if (isIpInfoStateError) {
+    return null;
+  }
+
+  return null;
 };
 
 export default IpLocationMap;
