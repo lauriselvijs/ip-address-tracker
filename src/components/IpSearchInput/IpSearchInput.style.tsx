@@ -44,7 +44,7 @@ export const IpSearchBtnStyle = styled.button`
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.25;
+    opacity: 0.8;
   }
 
   &:not(:disabled) {

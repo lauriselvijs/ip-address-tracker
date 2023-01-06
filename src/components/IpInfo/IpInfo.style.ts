@@ -8,6 +8,7 @@ export const IpInfoStyle = styled.div`
   margin: 0 20px -12vh 20px;
   padding: 10px;
   z-index: 1;
+  min-height: 180px;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     align-items: center;
@@ -15,17 +16,18 @@ export const IpInfoStyle = styled.div`
     justify-content: space-between;
     margin-bottom: -55vh;
     padding-bottom: 40px;
-    min-width: 38vw;
   }
 `;
 
 export const IpInfoErrMsg = styled(IpInfoStyle)`
+  min-height: fit-content;
   padding: 20px;
 `;
 
 export const IpInfoItem = styled.div`
   padding: 20px 80px 20px 20px;
   position: relative;
+  overflow-x: auto;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     padding: 10px 5vw;
