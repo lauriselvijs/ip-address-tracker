@@ -4,12 +4,12 @@ import { isEmpty } from "../../utils/Array.util";
 
 import { useGetErrorInfo, useGetIpInfoQueryState } from "./IpInfo.hook";
 import {
-  IpInfoAttributesDivider,
-  IpInfoItem,
-  IpInfoItemContent,
-  IpInfoItemTitle,
+  IpInfoAttributesDividerStyle,
+  IpInfoItemStyle,
+  IpInfoItemContentStyle,
+  IpInfoItemTitleStyle,
   IpInfoStyle,
-  IpInfoErrMsg,
+  IpInfoErrMsgStyle,
   IpInfoShimmerStyle,
 } from "./IpInfo.style";
 
@@ -22,22 +22,22 @@ const IpInfo = () => {
   const renderIpInfoItems = useMemo(
     () =>
       data?.map(({ title, value, key }, index) => (
-        <IpInfoItem key={key}>
-          {index !== 0 && <IpInfoAttributesDivider />}
-          <IpInfoItemTitle>{title}</IpInfoItemTitle>
-          <IpInfoItemContent>
+        <IpInfoItemStyle key={key}>
+          {index !== 0 && <IpInfoAttributesDividerStyle />}
+          <IpInfoItemTitleStyle>{title}</IpInfoItemTitleStyle>
+          <IpInfoItemContentStyle>
             {isFetching ? <IpInfoShimmerStyle /> : value}
-          </IpInfoItemContent>
-        </IpInfoItem>
+          </IpInfoItemContentStyle>
+        </IpInfoItemStyle>
       )),
     [isFetching, data]
   );
 
   if (isError) {
     return (
-      <IpInfoErrMsg>
-        <IpInfoItemTitle>{ipInfoErrorMsg}</IpInfoItemTitle>
-      </IpInfoErrMsg>
+      <IpInfoErrMsgStyle>
+        <IpInfoItemTitleStyle>{ipInfoErrorMsg}</IpInfoItemTitleStyle>
+      </IpInfoErrMsgStyle>
     );
   } else if (!isEmpty(data)) {
     return <IpInfoStyle>{renderIpInfoItems}</IpInfoStyle>;

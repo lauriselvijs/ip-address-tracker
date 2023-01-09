@@ -21,12 +21,12 @@ export const IpInfoStyle = styled.div`
   }
 `;
 
-export const IpInfoErrMsg = styled(IpInfoStyle)`
+export const IpInfoErrMsgStyle = styled(IpInfoStyle)`
   min-height: fit-content;
   padding: 20px;
 `;
 
-export const IpInfoItem = styled.div`
+export const IpInfoItemStyle = styled.div`
   padding: 20px 80px 20px 30px;
   min-width: 60px;
   position: relative;
@@ -38,7 +38,7 @@ export const IpInfoItem = styled.div`
   }
 `;
 
-export const IpInfoAttributesDivider = styled.div`
+export const IpInfoAttributesDividerStyle = styled.div`
   border-left: 2px solid ${({ theme }) => theme.color.primary};
   bottom: 0;
   height: 50%;
@@ -53,14 +53,14 @@ export const IpInfoAttributesDivider = styled.div`
   }
 `;
 
-export const IpInfoItemTitle = styled.h2`
+export const IpInfoItemTitleStyle = styled.h2`
   color: ${({ theme }) => theme.color.primary};
   font-size: ${({ theme }) => theme.font.size.small};
   letter-spacing: 1px;
   text-transform: uppercase;
 `;
 
-export const IpInfoItemContent = styled.h3`
+export const IpInfoItemContentStyle = styled.h3`
   color: ${({ theme }) => theme.color.primaryDark};
   font-size: ${({ theme }) => theme.font.size.medium};
   font-weight: ${({ theme }) => theme.font.weight.medium};

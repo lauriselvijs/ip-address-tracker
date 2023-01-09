@@ -47,9 +47,11 @@ export const IpSearchBtnStyle = styled.button`
     opacity: 0.8;
   }
 
-  &:not(:disabled) {
-    &:hover {
-      background-color: ${({ theme }) => theme.color.primary};
+  @media (hover: hover) {
+    &:not(:disabled) {
+      &:hover {
+        background-color: ${({ theme }) => theme.color.primary};
+      }
     }
   }
 `;
