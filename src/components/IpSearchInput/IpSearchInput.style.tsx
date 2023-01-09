@@ -49,9 +49,7 @@ export const IpSearchBtnStyle = styled.button`
 
   &:not(:disabled) {
     &:hover {
-      svg {
-        fill: ${({ theme }) => theme.color.primary};
-      }
+      background-color: ${({ theme }) => theme.color.primary};
     }
   }
 `;

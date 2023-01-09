@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { ShimmerStyle } from "../../style/animations/Shimmer.style";
 
 export const MapStyle = styled.main`
   canvas {
@@ -7,27 +8,12 @@ export const MapStyle = styled.main`
   }
 `;
 
-export const ShimmerStyle = styled.div`
-  width: 100vw;
+export const IpLocationMapShimmerStyle = styled(ShimmerStyle)`
+  animation-name: map-placeholder-shimmer;
+
   height: 120vh;
 
-  background: #f6f7f8;
-  background-image: linear-gradient(
-    to right,
-    #f6f7f8 0%,
-    #edeef1 20%,
-    #f6f7f8 40%,
-    #f6f7f8 100%
-  );
-  background-repeat: no-repeat;
-
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-name: placeholderShimmer;
-  animation-timing-function: linear;
-
-  @keyframes placeholderShimmer {
+  @keyframes map-placeholder-shimmer {
     0% {
       background-position: -100vw 0;
     }

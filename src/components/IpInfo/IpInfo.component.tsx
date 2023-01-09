@@ -1,8 +1,7 @@
 import { useMemo } from "react";
-import { Shimmer } from "react-shimmer";
 
 import { isEmpty } from "../../utils/Array.util";
-import { SHIMMER_HEIGHT, SHIMMER_WIDTH } from "./IpInfo.config";
+
 import { useGetErrorInfo, useGetIpInfoQueryState } from "./IpInfo.hook";
 import {
   IpInfoAttributesDivider,
@@ -11,9 +10,12 @@ import {
   IpInfoItemTitle,
   IpInfoStyle,
   IpInfoErrMsg,
+  IpInfoShimmerStyle,
 } from "./IpInfo.style";
 
 const IpInfo = () => {
+  // TODO:
+  // [ ] - on page load automatically search for users ip
   const { isFetching, transformedData: data } = useGetIpInfoQueryState();
   const [isError, ipInfoErrorMsg] = useGetErrorInfo();
 
@@ -24,11 +26,7 @@ const IpInfo = () => {
           {index !== 0 && <IpInfoAttributesDivider />}
           <IpInfoItemTitle>{title}</IpInfoItemTitle>
           <IpInfoItemContent>
-            {!isFetching ? (
-              value
-            ) : (
-              <Shimmer width={SHIMMER_WIDTH} height={SHIMMER_HEIGHT} />
-            )}
+            {isFetching ? <IpInfoShimmerStyle /> : value}
           </IpInfoItemContent>
         </IpInfoItem>
       )),

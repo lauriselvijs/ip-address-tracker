@@ -66,63 +66,62 @@ Users should be able to:
 
 ### What I learned
 
-Using global styled component file to apply style everywhere as well use dynamic theme
+Using styled components and css variables to change theme dynamically
 
 ```js
 export const GlobalStyle = createGlobalStyle`
-      body{
-          background-color: ${({ theme }) => theme.colors.secondaryColor};
-          padding: 0px;
-          margin: 0px;
-          font-family: ${({ theme }) => theme.font.fontFamily};
-      }
-  `;
-```
+  :root {
+    --color-primary: ${defaultTheme.color.primary};
+    --color-primary-dark: ${defaultTheme.color.primaryDark};
+    --color-secondary: ${defaultTheme.color.secondary};
+    --color-secondary-light: ${defaultTheme.color.secondaryLight};
+    --color-secondary-dark: ${defaultTheme.color.secondaryDark};
+    --color-shimmer-bg: ${defaultTheme.color.shimmerBg};
+    --color-shimmer: ${defaultTheme.color.shimmer};
+    --color-white: ${defaultTheme.color.white};
+    --color-black: ${defaultTheme.color.black};
+  }
 
-Using styled components css function to change css dynamically
+  .${darkTheme.name}{
+    --color-primary: ${darkTheme.color.primary};
+    --color-primary-dark: ${darkTheme.color.primaryDark};
+    --color-secondary: ${darkTheme.color.secondary};
+    --color-secondary-light: ${darkTheme.color.secondaryLight};
+    --color-secondary-dark: ${darkTheme.color.secondaryDark};
+    --color-shimmer-bg: ${darkTheme.color.shimmerBg};
+    --color-shimmer: ${darkTheme.color.shimmer};
+  }
 
-```js
-  ${({ theme }) =>
-    theme.themeId === DarkTheme.themeId
-      ? css`
-          background-image: url(${BackgroundHeaderImageDarkMode});
-        `
-      : css`
-          background-image: url(${BackgroundHeaderImage});
-        `}
+  body {
+    padding: 0px;
+    margin: 0px;
+
+    background-color: ${({ theme }) => theme.color.secondary};
+    font-family: ${({ theme }) => theme.font.family};
+  }
+`;
 ```
 
 Using RTK Query to fetch data from server
 
 ```js
   export const IpInfoApi = createApi({
-    reducerPath: IP_INFO_API_REDUCER_PATH,
+    reducerPath: REDUCER_PATH,
     baseQuery: fetchBaseQuery({
-      baseUrl: IP_GEOLOCATION_BASE_URL,
-      prepareHeaders: (headers) =>
-        prepareReqHeaders(headers, IP_GEOLOCATION_HEADERS),
+      baseUrl: BASE_URL,
     }),
     endpoints: (builder) => ({
-      getIpInfo: builder.query<IIpInfo, string>({
-        query: (ip = "") => {
-          return {
-            url: `/${ip}`,
-          };
-        },
+      getIpInfo: builder.query<IpInfo, string>({
+        query: (ip) => ({
+          url: `${GET_IP_INFO}${ip}`,
+          validateStatus: (response, result) =>
+            response.status === 200 && result.status === SUCCESS,
+        }),
       }),
     }),
   });
 
   export const { useGetIpInfoQuery } = IpInfoApi;
-
-
- /*  Using fetch hook inside component, using conditional fetching in case if
-  ipFetch is set true fetch data (if user has pressed search button, ipFetch
-  is set to true) */
-  const { ipFetch, ip } = useAppSelector((state: RootState) => state[IpName]);
-  const { data: IpInfoData, isLoading } = useGetIpInfoQuery(ip, {
-    skip: !ipFetch,
-  });
 ```
 
 ### Continued development

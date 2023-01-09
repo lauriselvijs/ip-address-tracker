@@ -17,7 +17,11 @@ export const DarkModeBtnStyle = styled.button`
 
   background-color: ${({ theme }) => theme.color.secondary};
 
-  &:active {
-    transform: scale(0.8);
+  &:hover {
+    svg {
+      color: ${({ theme }) => theme.color.primaryDark};
+    }
+
+    background-color: ${({ theme }) => theme.color.primary};
   }
 `;

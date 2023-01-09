@@ -29,11 +29,12 @@ declare module "styled-components" {
     };
     color: {
       primary: string;
-      primaryLight: string;
       primaryDark: string;
       secondary: string;
       secondaryLight: string;
       secondaryDark: string;
+      shimmerBg: string;
+      shimmer: string;
       white: string;
       black: string;
     };

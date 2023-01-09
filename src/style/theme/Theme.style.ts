@@ -1,11 +1,6 @@
-import { Theme } from "../../types/styles/Theme.style";
+import { ThemeColors, DefaultThemeColors } from "./Theme.style.d";
 
-interface IDefaultTheme {
-  name: string;
-  color: Theme["color"];
-}
-
-export const defaultTheme: IDefaultTheme = {
+export const defaultTheme: DefaultThemeColors = {
   name: "",
   color: {
     primary: "hsl(0, 0%, 59%)",
@@ -13,12 +8,14 @@ export const defaultTheme: IDefaultTheme = {
     secondary: "hsl(360, 100%, 100%)",
     secondaryLight: "hsl(224, 100%, 50%)",
     secondaryDark: "hsl(0,0%, 0%)",
+    shimmer: "hsl(225, 12%, 94%)",
+    shimmerBg: "hsl(210, 12%, 97%)",
     white: "hsl(360, 100%, 100%)",
     black: "hsl(0, 0%, 0%)",
   },
 };
 
-export const darkTheme: Theme = {
+export const darkTheme: ThemeColors = {
   name: "dark",
   color: {
     primary: "hsl(0, 100%, 100%)",
@@ -26,5 +23,7 @@ export const darkTheme: Theme = {
     secondary: "hsl(0, 0%, 0%)",
     secondaryLight: "hsl(268, 39%, 49%)",
     secondaryDark: "hsl(202, 97%, 43%)",
+    shimmer: "hsl(225, 4%, 10%)",
+    shimmerBg: "hsl(0,4%, 12%)",
   },
 };

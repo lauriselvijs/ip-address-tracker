@@ -15,8 +15,6 @@ const App = () => {
     font: { familyName, weight },
   } = theme;
 
-  // useReconnectWhenOnline();
-
   return (
     <FontProvider fontFamilyName={familyName} fontWeight={weight}>
       <ThemeProvider theme={theme}>

@@ -1,16 +1,15 @@
 import Map, { Marker } from "react-map-gl";
-import { Shimmer } from "react-shimmer";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 import { MARKER_STYLE, STYLE, ZOOM_LEVEL } from "./IpLocationMap.config";
 import { useGetIpInfoCoordinatesQueryState } from "./IpLocationMap.hook";
-import { MapStyle, ShimmerStyle } from "./IpLocationMap.style";
+import { IpLocationMapShimmerStyle, MapStyle } from "./IpLocationMap.style";
 
 const IpLocationMap = () => {
+  // TODO
+  // [ ] - add map scroll
   const { lat, lon, isFetching, isIpInfoStateError } =
     useGetIpInfoCoordinatesQueryState();
-
-  //24.48.0.1
 
   if (lon && lat && !isFetching) {
     return (
@@ -31,7 +30,11 @@ const IpLocationMap = () => {
   }
 
   if (isFetching) {
-    return <ShimmerStyle />;
+    return (
+      <div>
+        <IpLocationMapShimmerStyle />
+      </div>
+    );
   }
 
   if (isIpInfoStateError) {

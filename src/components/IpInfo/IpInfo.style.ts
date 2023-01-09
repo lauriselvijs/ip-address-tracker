@@ -1,14 +1,16 @@
 import styled from "styled-components/macro";
+import { ShimmerStyle } from "../../style/animations/Shimmer.style";
 
 export const IpInfoStyle = styled.div`
   background-color: ${({ theme }) => theme.color.secondary};
   border-radius: 10px;
   box-shadow: 2px 2px 10px 2px ${({ theme }) => theme.color.primary};
   display: flex;
-  margin: 0 20px -12vh 20px;
+  margin-bottom: -12vh;
   padding: 10px;
   z-index: 1;
   min-height: 180px;
+  max-width: 90vw;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     align-items: center;
@@ -25,7 +27,8 @@ export const IpInfoErrMsg = styled(IpInfoStyle)`
 `;
 
 export const IpInfoItem = styled.div`
-  padding: 20px 80px 20px 20px;
+  padding: 20px 80px 20px 30px;
+  min-width: 60px;
   position: relative;
   overflow-x: auto;
 
@@ -39,11 +42,11 @@ export const IpInfoAttributesDivider = styled.div`
   border-left: 2px solid ${({ theme }) => theme.color.primary};
   bottom: 0;
   height: 50%;
-  left: -5px;
   margin: auto;
   opacity: 0.3;
   position: absolute;
   top: 0;
+  left: 0;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     display: none;
@@ -65,5 +68,21 @@ export const IpInfoItemContent = styled.h3`
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     padding: 0;
     margin: 0;
+  }
+`;
+
+export const IpInfoShimmerStyle = styled(ShimmerStyle)`
+  animation-name: ip-info-shimmer;
+  height: 30px;
+  width: 100%;
+
+  @keyframes ip-info-shimmer {
+    0% {
+      background-position: -320px 0;
+    }
+
+    100% {
+      background-position: 320px 0;
+    }
   }
 `;

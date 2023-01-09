@@ -17,11 +17,12 @@ const theme: DefaultTheme = {
   },
   color: {
     primary: "var(--color-primary)",
-    primaryLight: "var(--color-primary-light)",
     primaryDark: "var(--color-primary-dark)",
     secondary: "var(--color-secondary)",
     secondaryLight: "var(--color-secondary-light)",
     secondaryDark: "var(--color-secondary-dark)",
+    shimmerBg: "var(--color-shimmer-bg)",
+    shimmer: "var(--color-shimmer)",
     white: "var(--color-white)",
     black: "var(--color-black)",
   },
