@@ -31,4 +31,12 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.secondary};
     font-family: ${({ theme }) => theme.font.family};
   }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
 `;
