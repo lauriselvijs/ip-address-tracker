@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { SLICE_NAME } from "./Theme.config";
 import initialState from "./Theme.initial-state";
 
-export const Theme = createSlice({
+export const theme = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {
@@ -13,6 +13,6 @@ export const Theme = createSlice({
   },
 });
 
-export const ThemeActions = Theme.actions;
-export const ThemeReducer = Theme.reducer;
-export const ThemeName = Theme.name;
+export const themeActions = theme.actions;
+export const themeReducer = theme.reducer;
+export const themeName = theme.name;

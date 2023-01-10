@@ -3,7 +3,7 @@ import { SLICE_NAME } from "./Ip.config";
 import initialState from "./Ip.initial-state";
 import { Ip as IIp } from "./Ip.initial-state.d";
 
-export const Ip = createSlice({
+export const ip = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {
@@ -13,6 +13,6 @@ export const Ip = createSlice({
   },
 });
 
-export const IpActions = Ip.actions;
-export const IpReducer = Ip.reducer;
-export const IpName = Ip.name;
+export const ipActions = ip.actions;
+export const ipReducer = ip.reducer;
+export const ipName = ip.name;

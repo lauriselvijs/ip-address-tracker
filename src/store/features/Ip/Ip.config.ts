@@ -1,1 +1,1 @@
-export const SLICE_NAME = "Ip";
+export const SLICE_NAME = "ip";

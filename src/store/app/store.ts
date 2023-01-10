@@ -11,9 +11,9 @@ import {
   persistStore,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { IpName } from "../features/Ip";
+import { ipName } from "../features/Ip";
 
-import { IpInfoApiMiddleware, IpInfoApiName } from "../features/IpInfo";
+import { ipLocationApiMiddleware, ipLocationApiName } from "../features/IpInfo";
 
 import rootReducer from "./reducer";
 
@@ -21,7 +21,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: [IpInfoApiName, IpName],
+  blacklist: [ipLocationApiName, ipName],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -33,7 +33,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(IpInfoApiMiddleware),
+    }).concat(ipLocationApiMiddleware),
 });
 
 export const persistor = persistStore(store);

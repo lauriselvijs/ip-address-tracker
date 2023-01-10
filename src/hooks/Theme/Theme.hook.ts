@@ -2,17 +2,17 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 import { useLayoutEffect } from "react";
 import { RootState } from "../../store/app/store";
 import {
-  ThemeActions,
-  ThemeName,
+  themeActions,
+  themeName,
 } from "../../store/features/Theme/Theme.slice";
 import { useAppDispatch, useAppSelector } from "../Store";
 import { UseTheme } from "./Theme.hook.d";
 
 export const useTheme = (): UseTheme => {
   const appDispatch = useAppDispatch();
-  const { themeUpdated } = bindActionCreators(ThemeActions, appDispatch);
+  const { themeUpdated } = bindActionCreators(themeActions, appDispatch);
   const { themeName: currentTheme } = useAppSelector(
-    (state: RootState) => state[ThemeName]
+    (state: RootState) => state[themeName]
   );
 
   useLayoutEffect(() => {

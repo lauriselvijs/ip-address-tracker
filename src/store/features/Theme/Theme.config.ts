@@ -1,1 +1,1 @@
-export const SLICE_NAME = "Theme";
+export const SLICE_NAME = "theme";

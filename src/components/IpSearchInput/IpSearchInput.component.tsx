@@ -3,7 +3,7 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { useAppDispatch } from "../../hooks/Store";
-import { IpActions } from "../../store/features/Ip";
+import { ipActions } from "../../store/features/Ip";
 import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo";
 
 import {
@@ -18,7 +18,7 @@ const IpSearchInput = () => {
     refetchOnReconnect: true,
   });
   const dispatch = useAppDispatch();
-  const { ipReceived } = bindActionCreators(IpActions, dispatch);
+  const { ipReceived } = bindActionCreators(ipActions, dispatch);
 
   const onIpInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setIp(event.target.value);

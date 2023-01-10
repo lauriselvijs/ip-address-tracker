@@ -1,1 +1,1 @@
-export * from "./IpInfo.slice";
+export * from "./IpLocation";
