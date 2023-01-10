@@ -45,6 +45,7 @@ const IpSearchInput = () => {
         type="submit"
         aria-label="Search ip"
         onClick={onIpSearchBtnClick}
+        title="Search"
       >
         <IoIosArrowForward />
       </IpSearchBtnStyle>

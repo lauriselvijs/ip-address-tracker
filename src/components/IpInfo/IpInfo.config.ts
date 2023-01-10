@@ -2,7 +2,7 @@ import { Titles } from "./Ipinfo.config";
 
 export const TITLES: Titles = {
   query: "Ip address",
-  isp: "ISP",
+  org: "Organization",
   location: "Location",
   timezone: "Timezone",
 };

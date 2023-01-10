@@ -5,22 +5,22 @@ import { nanoid } from "@reduxjs/toolkit";
 import { RootState } from "../../store/app/store";
 import { IpName } from "../../store/features/Ip";
 import { IpInfoApi } from "../../store/features/IpInfo";
-import { IpInfoError, IpInfoErrorMsg } from "../../types/IpInfo";
+import { IpInfoError } from "../../types/IpInfo";
 import { Titles } from "./Ipinfo.config";
 import { TITLES } from "./IpInfo.config";
-import { DefaultError, ErrorMsg, ErrorStatus } from "../../config/Network";
+import { DefaultError, ErrorMsg, ErrorStatus } from "../../types/Network.d";
 
 export const useGetIpInfoQueryState = () => {
   const { ip: receivedIp } = useSelector((state: RootState) => state[IpName]);
   const queryState = IpInfoApi.endpoints.getIpInfo.useQueryState(receivedIp, {
     selectFromResult: ({
-      data: { query, isp, city, zip, timezone } = {},
+      data: { query, org, city, zip, timezone } = {},
       isFetching,
     }) => {
       const transformedData = Object.entries({
         query,
-        location: city && zip ? city + ", " + zip : undefined,
-        isp,
+        location: city && zip ? city + " " + zip : undefined,
+        org,
         timezone,
       })
         .filter(([key]) => {
@@ -47,10 +47,10 @@ export const useGetIpInfoQueryState = () => {
 
 export const useGetErrorInfo = (): [
   boolean,
-  IpInfoErrorMsg | DefaultError["error"] | undefined
+  IpInfoError["data"]["message"] | DefaultError["error"] | undefined
 ] => {
   const [ipInfoErrorMsg, setIpInfoErrorMsg] = useState<
-    IpInfoErrorMsg | DefaultError["error"]
+    IpInfoError["data"]["message"] | DefaultError["error"]
   >();
   const { ip: receivedIp } = useSelector((state: RootState) => state[IpName]);
   const { isError, error } =
@@ -61,12 +61,16 @@ export const useGetErrorInfo = (): [
   useEffect(() => {
     const conErr = (error as DefaultError) || {};
 
-    if (conErr?.status === FETCH_ERROR) {
-      setIpInfoErrorMsg(NO_CONNECTION);
-    } else if (conErr?.status !== FETCH_ERROR) {
-      const { data } = (error as IpInfoError) || {};
+    if (isError) {
+      if (conErr?.status === FETCH_ERROR) {
+        setIpInfoErrorMsg(NO_CONNECTION);
+      } else if (conErr?.status !== FETCH_ERROR) {
+        const {
+          data: { message },
+        } = (error as IpInfoError) || {};
 
-      setIpInfoErrorMsg(data?.message);
+        setIpInfoErrorMsg(message);
+      }
     }
   }, [isError]);
 
