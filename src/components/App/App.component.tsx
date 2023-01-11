@@ -1,5 +1,4 @@
 import { GlobalStyle } from "../../style/base/Global.style";
-import theme from "../../style/shared/Theme.style";
 import Footer from "../Footer";
 import FontProvider from "../FontProvider";
 import HeaderContainer from "../HeaderContainer";
@@ -9,6 +8,7 @@ import IpLocationMap from "../IpLocationMap";
 import IpInfo from "../IpInfo";
 import DarkModeBtn from "../DarkModeBtn";
 import { ThemeProvider } from "styled-components";
+import theme from "../../style/theme";
 
 const App = () => {
   const {
