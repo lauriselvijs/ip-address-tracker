@@ -1,5 +1,5 @@
 import { IpInfo } from "../../../../types/IpInfo";
-import emptyIpInfoApi from "../EmptyIpInfo.slice";
+import emptyIpInfoApi from "../shared/EmptyIpInfo";
 import { TransformResult } from "./IpLocation";
 
 import { GET_IP_LOCATION } from "./IpLocation.config";

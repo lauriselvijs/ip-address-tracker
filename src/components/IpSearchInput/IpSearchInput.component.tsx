@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import { useAppDispatch } from "../../hooks/Store";
 import { ipActions } from "../../store/features/Ip";
-import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo";
+import { useLazyGetIpInfoQuery } from "../../store/features/IpInfo/IpLocation";
 
 import {
   IpSearchBtnStyle,

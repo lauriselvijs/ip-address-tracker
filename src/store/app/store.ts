@@ -13,7 +13,10 @@ import {
 import storage from "redux-persist/lib/storage";
 import { ipName } from "../features/Ip";
 
-import { ipLocationApiMiddleware, ipLocationApiName } from "../features/IpInfo";
+import {
+  ipLocationApiMiddleware,
+  ipLocationApiName,
+} from "../features/IpInfo/IpLocation";
 
 import rootReducer from "./reducer";
 

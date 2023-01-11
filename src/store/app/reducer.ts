@@ -1,7 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { ipName, ipReducer } from "../features/Ip";
 
-import { ipLocationApiReducer, ipLocationApiName } from "../features/IpInfo";
+import {
+  ipLocationApiReducer,
+  ipLocationApiName,
+} from "../features/IpInfo/IpLocation";
 import { themeName, themeReducer } from "../features/Theme";
 
 const reducers = {
