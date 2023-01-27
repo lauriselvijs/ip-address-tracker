@@ -19,7 +19,7 @@ export const darkTheme: ThemeColors = {
   name: "dark",
   color: {
     primary: "hsl(0, 100%, 100%)",
-    primaryDark: "	hsl(203, 89%, 53%)",
+    primaryDark: "hsl(203, 89%, 53%)",
     secondary: "hsl(0, 0%, 0%)",
     secondaryLight: "hsl(268, 39%, 49%)",
     secondaryDark: "hsl(202, 97%, 43%)",
