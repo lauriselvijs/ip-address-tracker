@@ -1,8 +1,6 @@
-import { FooterStyle } from "./Footer.style";
-
-const Footer = () => {
+const Author = () => {
   return (
-    <FooterStyle>
+    <>
       Challenge by{" "}
       <a
         rel="noreferrer"
@@ -20,8 +18,8 @@ const Footer = () => {
         Lauris
       </a>
       .
-    </FooterStyle>
+    </>
   );
 };
 
-export default Footer;
+export default Author;

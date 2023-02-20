@@ -47,7 +47,7 @@ const IpSearchInput = () => {
         onClick={onIpSearchBtnClick}
         title="Search"
       >
-        <IoIosArrowForward />
+        <IoIosArrowForward aria-hidden="true" />
       </IpSearchBtnStyle>
     </IpSearchInputStyleForm>
   );

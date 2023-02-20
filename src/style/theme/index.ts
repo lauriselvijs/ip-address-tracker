@@ -1,2 +1,2 @@
-export * from "./Theme.colors";
-export { default } from "./Theme.style";
+export * from "./Dark.style";
+export { default } from "./Default.style";

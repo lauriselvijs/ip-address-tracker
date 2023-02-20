@@ -1,11 +1,13 @@
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { useLayoutEffect } from "react";
+
 import { RootState } from "../../store/app/store";
 import {
   themeActions,
   themeName,
 } from "../../store/features/Theme/Theme.slice";
 import { useAppDispatch, useAppSelector } from "../Store";
+
 import { UseTheme } from "./Theme.hook.d";
 
 export const useTheme = (): UseTheme => {

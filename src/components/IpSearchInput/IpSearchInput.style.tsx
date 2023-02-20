@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { SecondaryBtnStyle } from "../../style/components/Button.style";
 
 export const IpSearchInputStyle = styled.input`
   background-color: ${({ theme }) => theme.color.secondary};
@@ -29,29 +30,8 @@ export const IpSearchInputStyleForm = styled.form`
   justify-content: center;
 `;
 
-export const IpSearchBtnStyle = styled.button`
-  align-items: center;
-  background-color: ${({ theme }) => theme.color.primaryDark};
-  border-radius: 0px 10px 10px 0px;
-  border: none;
-  color: ${({ theme }) => theme.color.secondary};
-  cursor: pointer;
+export const IpSearchBtnStyle = styled(SecondaryBtnStyle)`
   display: flex;
-  font-size: ${({ theme }) => theme.font.size.medium};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
+  align-items: center;
   justify-content: center;
-  padding: 0px 15px;
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.8;
-  }
-
-  @media (hover: hover) {
-    &:not(:disabled) {
-      &:hover {
-        background-color: ${({ theme }) => theme.color.primary};
-      }
-    }
-  }
 `;

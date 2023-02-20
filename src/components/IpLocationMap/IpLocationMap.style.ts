@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { ShimmerStyle } from "../../style/animations/Shimmer.style";
 
-export const MapStyle = styled.main`
+export const MapStyle = styled.div`
   canvas {
     outline: none;
     height: 120vh;

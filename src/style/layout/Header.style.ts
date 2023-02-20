@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import BackgroundHeaderImage from "../../asset/images/pattern-bg.png";
 
-export const HeaderContainerStyle = styled.header`
+export const HeaderStyle = styled.header`
   align-items: center;
   background-image: url(${BackgroundHeaderImage});
   background-repeat: no-repeat;

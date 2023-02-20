@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { isEmpty } from "../../utils/Array.util";
+import { isEmpty } from "../../utils/Array";
 
 import { useGetErrorInfo, useGetIpInfoQueryState } from "./IpInfo.hook";
 import {

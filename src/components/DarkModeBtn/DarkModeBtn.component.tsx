@@ -1,7 +1,8 @@
 import { DarkModeBtnStyle } from "./DarkModeBtn.style";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { useTheme } from "../../hooks/Theme";
-import { darkTheme } from "../../style/theme";
+import { useMemo } from "react";
+import { darkTheme } from "../../style/theme/Dark.style";
 
 const DarkModeBtn = () => {
   const { currentTheme, setTheme, setDefaultTheme } = useTheme();
@@ -11,13 +12,23 @@ const DarkModeBtn = () => {
     currentTheme ? setDefaultTheme() : setTheme(darkThemeName);
   };
 
+  const icon = useMemo(
+    () =>
+      currentTheme ? (
+        <BiSun aria-hidden="true" />
+      ) : (
+        <BiMoon aria-hidden="true" />
+      ),
+    [currentTheme]
+  );
+
   return (
     <DarkModeBtnStyle
       onClick={onDarkModeBtnClick}
       aria-label="Switch to dark mode"
       title="Dark mode"
     >
-      {currentTheme ? <BiSun /> : <BiMoon />}
+      {icon}
     </DarkModeBtnStyle>
   );
 };
