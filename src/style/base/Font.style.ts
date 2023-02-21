@@ -1,1 +1,25 @@
-export const font = `@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');`;
+export const font = `
+@font-face {
+    font-family: Rubik;
+    src: url('Rubik-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Rubik;
+    src: url('Rubik-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Rubik;
+    src: url('Rubik-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+`;

@@ -2,7 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
   font: {
-    family: "'Rubik', sans-serif",
+    family: "Rubik, sans-serif, Arial, sans-serif",
     weight: {
       light: "400",
       medium: "500",
