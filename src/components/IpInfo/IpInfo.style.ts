@@ -7,10 +7,10 @@ export const IpInfoStyle = styled.div`
   box-shadow: 2px 2px 10px 2px ${({ theme }) => theme.color.primary};
   display: flex;
   margin-bottom: -12vh;
+  max-width: 90vw;
+  min-height: 180px;
   padding: 10px;
   z-index: 1;
-  min-height: 180px;
-  max-width: 90vw;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     align-items: center;
@@ -27,10 +27,10 @@ export const IpInfoErrMsgStyle = styled(IpInfoStyle)`
 `;
 
 export const IpInfoItemStyle = styled.div`
-  padding: 20px 80px 20px 30px;
   min-width: 60px;
-  position: relative;
   overflow-x: auto;
+  padding: 20px 80px 20px 30px;
+  position: relative;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     padding: 10px 5vw;
@@ -42,11 +42,11 @@ export const IpInfoAttributesDividerStyle = styled.div`
   border-left: 2px solid ${({ theme }) => theme.color.primary};
   bottom: 0;
   height: 50%;
+  left: 0;
   margin: auto;
   opacity: 0.3;
   position: absolute;
   top: 0;
-  left: 0;
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
     display: none;
@@ -66,8 +66,8 @@ export const IpInfoItemContentStyle = styled.h3`
   font-weight: ${({ theme }) => theme.font.weight.medium};
 
   @media (max-width: ${({ theme }) => theme.media.tablet.maxWidth}) {
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 `;
 

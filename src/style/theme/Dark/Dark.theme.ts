@@ -1,11 +1,6 @@
-import { DefaultTheme } from "styled-components";
+import { ThemeColors } from "../../../types/styles/Theme.style.d";
 
-export interface ThemeColors {
-  name: string;
-  color: Partial<DefaultTheme["color"]>;
-}
-
-export const darkTheme: ThemeColors = {
+const darkTheme: ThemeColors = {
   name: "dark",
   color: {
     primary: "hsl(0 100% 100%)",
@@ -17,3 +12,5 @@ export const darkTheme: ThemeColors = {
     shimmerBg: "hsl(0 4% 12%)",
   },
 };
+
+export default darkTheme;

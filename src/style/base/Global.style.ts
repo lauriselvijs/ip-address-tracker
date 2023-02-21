@@ -1,8 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-import { darkTheme } from "../theme/Dark.style";
+import darkTheme from "../theme/Dark";
 import { color } from "./Colors.style";
+import { font } from "./Font.style";
 
 export const GlobalStyle = createGlobalStyle`
+  ${font}
+
   :root {
     --color-primary: ${color.primary};
     --color-primary-dark: ${color.primaryDark};
@@ -38,8 +41,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 
     background-color: ${({ theme }) => theme.color.secondary};
     font-family: ${({ theme }) => theme.font.family};

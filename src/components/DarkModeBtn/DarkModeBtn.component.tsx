@@ -2,7 +2,7 @@ import { DarkModeBtnStyle } from "./DarkModeBtn.style";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { useTheme } from "../../hooks/Theme";
 import { useMemo } from "react";
-import { darkTheme } from "../../style/theme/Dark.style";
+import darkTheme from "../../style/theme/Dark";
 
 const DarkModeBtn = () => {
   const { currentTheme, setTheme, setDefaultTheme } = useTheme();

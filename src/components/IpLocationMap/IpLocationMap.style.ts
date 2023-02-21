@@ -10,7 +10,6 @@ export const MapStyle = styled.div`
 
 export const IpLocationMapShimmerStyle = styled(ShimmerStyle)`
   animation-name: map-placeholder-shimmer;
-
   height: 120vh;
 
   @keyframes map-placeholder-shimmer {

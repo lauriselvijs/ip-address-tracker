@@ -14,7 +14,6 @@ declare module "*.png" {
 declare module "styled-components" {
   export interface DefaultTheme {
     font: {
-      familyName: string;
       family: string;
       weight: {
         light: string;

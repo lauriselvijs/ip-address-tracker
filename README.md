@@ -70,16 +70,16 @@ Using styled components and css variables to change theme dynamically
 
 ```js
 export const GlobalStyle = createGlobalStyle`
-  :root {
-    --color-primary: ${defaultTheme.color.primary};
-    --color-primary-dark: ${defaultTheme.color.primaryDark};
-    --color-secondary: ${defaultTheme.color.secondary};
-    --color-secondary-light: ${defaultTheme.color.secondaryLight};
-    --color-secondary-dark: ${defaultTheme.color.secondaryDark};
-    --color-shimmer-bg: ${defaultTheme.color.shimmerBg};
-    --color-shimmer: ${defaultTheme.color.shimmer};
-    --color-white: ${defaultTheme.color.white};
-    --color-black: ${defaultTheme.color.black};
+ :root {
+    --color-primary: ${color.primary};
+    --color-primary-dark: ${color.primaryDark};
+    --color-secondary: ${color.secondary};
+    --color-secondary-light: ${color.secondaryLight};
+    --color-secondary-dark: ${color.secondaryDark};
+    --color-shimmer-bg: ${color.shimmerBg};
+    --color-shimmer: ${color.shimmer};
+    --color-white: ${color.white};
+    --color-black: ${color.black};
   }
 
   .${darkTheme.name}{
@@ -93,8 +93,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 
     background-color: ${({ theme }) => theme.color.secondary};
     font-family: ${({ theme }) => theme.font.family};
