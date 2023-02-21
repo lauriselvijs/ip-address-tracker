@@ -1,6 +1,6 @@
 import { IpInfo } from "../../../../types/IpInfo";
 import emptyIpInfoApi from "../shared/EmptyIpInfo";
-import { TransformResult } from "./IpLocation";
+import { IpLocationResponse } from "./IpLocation.d";
 
 import { GET_IP_LOCATION } from "./IpLocation.config";
 
@@ -22,7 +22,7 @@ export const ipLocationApi = emptyIpInfoApi.injectEndpoints({
         timezone,
         latitude,
         longitude,
-      }: TransformResult) => {
+      }: IpLocationResponse) => {
         return {
           query: ip,
           city,

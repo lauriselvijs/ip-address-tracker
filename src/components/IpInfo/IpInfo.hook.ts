@@ -6,7 +6,7 @@ import { RootState } from "../../store/app/store";
 import { ipName } from "../../store/features/Ip";
 import { ipLocationApi } from "../../store/features/IpInfo/IpLocation";
 import { IpInfoError } from "../../types/IpInfo";
-import { Titles } from "./Ipinfo.config";
+import { Titles } from "./Ipinfo.config.d";
 import { TITLES } from "./IpInfo.config";
 import { DefaultError, ErrorMsg, ErrorStatus } from "../../types/Network.d";
 

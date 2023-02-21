@@ -1,4 +1,4 @@
-export interface TransformResult {
+export interface IpLocationResponse {
   ip: string;
   org: string;
   city: string;
